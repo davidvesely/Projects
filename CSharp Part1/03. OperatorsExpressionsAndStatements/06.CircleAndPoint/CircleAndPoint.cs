@@ -21,16 +21,21 @@ namespace OperatorsExpressionsAndStatements
             int circleX = 0, circleY = 0;
             // Find the distance of the point from circle's center
             double distance = Math.Sqrt(Math.Pow(x - circleX, 2) + Math.Pow(y - circleY, 2));
-            if (distance < circleRadius)
+
+            string result;
+            if (distance <= circleRadius)
             {
-                Console.WriteLine("The point ({0}, {1}) is inside a circle K( ({2}, {3}), {4})",
-                    x, y, circleX, circleY, circleRadius);
+                // The point is inside
+                result = "inside";
             }
             else
             {
-                Console.WriteLine("The point ({0}, {1}) is not inside a circle K( ({2}, {3}), {4})",
-                    x, y, circleX, circleY, circleRadius);
+                // The point is outside
+                result = "outside";
             }
+
+            Console.WriteLine("The point ({0}, {1}) is {2} a circle K( ({3}, {4}), {5})",
+                    x, y, result, circleX, circleY, circleRadius);
         }
     }
 }
