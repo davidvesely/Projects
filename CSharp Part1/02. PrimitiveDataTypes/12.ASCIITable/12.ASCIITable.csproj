@@ -7,7 +7,7 @@
     <ProjectGuid>{A81EA9AB-9B63-4496-8364-318C8639A5E6}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_12.ASCIITable</RootNamespace>
+    <RootNamespace>PrimitiveDataTypes</RootNamespace>
     <AssemblyName>12.ASCIITable</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

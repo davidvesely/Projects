@@ -7,7 +7,7 @@
     <ProjectGuid>{EC7AEC57-D160-4F6A-AD89-E5D57B72617B}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_08.QuotedStrings</RootNamespace>
+    <RootNamespace>PrimitiveDataTypes</RootNamespace>
     <AssemblyName>08.QuotedStrings</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

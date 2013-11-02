@@ -7,7 +7,7 @@
     <ProjectGuid>{E1024F36-81C3-4D6E-99E6-B99F36BA81F0}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_02.DoubleFloatComparison</RootNamespace>
+    <RootNamespace>PrimitiveDataTypes</RootNamespace>
     <AssemblyName>02.DoubleFloatComparison</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

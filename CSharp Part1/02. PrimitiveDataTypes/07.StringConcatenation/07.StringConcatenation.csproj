@@ -7,7 +7,7 @@
     <ProjectGuid>{A7243AD6-0A75-4E6E-A594-32A86ED800A8}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_07.StringConcatenation</RootNamespace>
+    <RootNamespace>PrimitiveDataTypes</RootNamespace>
     <AssemblyName>07.StringConcatenation</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

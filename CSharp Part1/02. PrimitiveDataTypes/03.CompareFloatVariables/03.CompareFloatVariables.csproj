@@ -7,7 +7,7 @@
     <ProjectGuid>{E2545A95-B44B-4EB3-96C8-19534E736D9C}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_03.CompareFloatVariables</RootNamespace>
+    <RootNamespace>PrimitiveDataTypes</RootNamespace>
     <AssemblyName>03.CompareFloatVariables</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
