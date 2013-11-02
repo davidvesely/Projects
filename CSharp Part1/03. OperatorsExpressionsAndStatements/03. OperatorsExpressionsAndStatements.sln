@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.OddOrEven", "01.OddOrEve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.DivideBy5and7", "02.DivideBy5and7\02.DivideBy5and7.csproj", "{2A3FCE97-7A49-462D-8C50-6A2EA67CA60D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.RectanglesArea", "03.RectanglesArea\03.RectanglesArea.csproj", "{D072B61C-9309-4C1F-A6A8-D7B48910FBA9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2A3FCE97-7A49-462D-8C50-6A2EA67CA60D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A3FCE97-7A49-462D-8C50-6A2EA67CA60D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A3FCE97-7A49-462D-8C50-6A2EA67CA60D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D072B61C-9309-4C1F-A6A8-D7B48910FBA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D072B61C-9309-4C1F-A6A8-D7B48910FBA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D072B61C-9309-4C1F-A6A8-D7B48910FBA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D072B61C-9309-4C1F-A6A8-D7B48910FBA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
