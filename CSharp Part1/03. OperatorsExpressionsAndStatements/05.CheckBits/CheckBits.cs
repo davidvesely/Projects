@@ -16,6 +16,7 @@ namespace OperatorsExpressionsAndStatements
             int mask = 1 << 3;
             int thirdBit = number & mask;
             thirdBit = thirdBit >> 3;
+            Console.WriteLine("Binary representation: " + Convert.ToString(number, 2));
             if (thirdBit == 1)
             {
                 Console.WriteLine("The third bit (counting from 0) is 1");
