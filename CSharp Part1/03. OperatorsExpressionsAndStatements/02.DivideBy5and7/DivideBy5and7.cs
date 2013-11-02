@@ -12,7 +12,8 @@ namespace OperatorsExpressionsAndStatements
     {
         static void Main()
         {
-            int number = 4375;
+            Console.WriteLine("Provide number for a check");
+            int number = int.Parse(Console.ReadLine());
             if ((number % 5 == 0) && (number % 7 == 0))
             {
                 Console.WriteLine("{0} can be divided by " +
