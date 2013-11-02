@@ -1,14 +1,15 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("12.ASCIITable")]
+[assembly: AssemblyTitle("13.NullPrimitives")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("12.ASCIITable")]
+[assembly: AssemblyProduct("13.NullPrimitives")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1c8481dc-91ca-4f0c-980c-2adcae0f75ef")]
+[assembly: Guid("6242f0e5-9bdd-4315-b036-b12eb81930c1")]
 
 // Version information for an assembly consists of the following four values:
 //
