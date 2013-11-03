@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.SumOfIntegers", "01.SumOfIntegers\01.SumOfIntegers.csproj", "{EC05053C-87DC-4A2F-9ED5-66EB220405A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.CircleRadiusPerimer", "02.CircleRadiusPerimer\02.CircleRadiusPerimer.csproj", "{2F92FDD4-9437-403A-8460-C4C8141662D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{EC05053C-87DC-4A2F-9ED5-66EB220405A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC05053C-87DC-4A2F-9ED5-66EB220405A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC05053C-87DC-4A2F-9ED5-66EB220405A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F92FDD4-9437-403A-8460-C4C8141662D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F92FDD4-9437-403A-8460-C4C8141662D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F92FDD4-9437-403A-8460-C4C8141662D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F92FDD4-9437-403A-8460-C4C8141662D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
