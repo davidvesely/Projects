@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.CircleRadiusPerimer", "0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.CompanyAndManager", "03.CompanyAndManager\03.CompanyAndManager.csproj", "{57ADDC7C-3257-4D36-8E73-471B4CC88F97}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.DivisionBy5", "04.DivisionBy5\04.DivisionBy5.csproj", "{B22B7F10-5E4D-4C3F-B5C9-ED171B4FB737}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{57ADDC7C-3257-4D36-8E73-471B4CC88F97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57ADDC7C-3257-4D36-8E73-471B4CC88F97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57ADDC7C-3257-4D36-8E73-471B4CC88F97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B22B7F10-5E4D-4C3F-B5C9-ED171B4FB737}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B22B7F10-5E4D-4C3F-B5C9-ED171B4FB737}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B22B7F10-5E4D-4C3F-B5C9-ED171B4FB737}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B22B7F10-5E4D-4C3F-B5C9-ED171B4FB737}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
