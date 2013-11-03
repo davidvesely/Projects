@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.SumOfIntegers", "01.SumO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.CircleRadiusPerimer", "02.CircleRadiusPerimer\02.CircleRadiusPerimer.csproj", "{2F92FDD4-9437-403A-8460-C4C8141662D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.CompanyAndManager", "03.CompanyAndManager\03.CompanyAndManager.csproj", "{57ADDC7C-3257-4D36-8E73-471B4CC88F97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2F92FDD4-9437-403A-8460-C4C8141662D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F92FDD4-9437-403A-8460-C4C8141662D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F92FDD4-9437-403A-8460-C4C8141662D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57ADDC7C-3257-4D36-8E73-471B4CC88F97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57ADDC7C-3257-4D36-8E73-471B4CC88F97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57ADDC7C-3257-4D36-8E73-471B4CC88F97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57ADDC7C-3257-4D36-8E73-471B4CC88F97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
