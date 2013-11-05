@@ -11,6 +11,8 @@ namespace ConsoleGames
         private const int Rows = 33;
         private const int Cols = 80;
         private static List<char[]> Grid;
+        private static int DwarfPositon;
+        private static string Dwarf = "(0)";
 
         static void Main()
         {
@@ -19,7 +21,7 @@ namespace ConsoleGames
             ConsoleKeyInfo keyPressed = new ConsoleKeyInfo();
             do
             {
-                Thread.Sleep(120);
+                Thread.Sleep(150);
                 Grid.Insert(0, GenerateRocks(Cols));
                 if (Grid.Count > Rows)
                 {
@@ -44,13 +46,13 @@ namespace ConsoleGames
             Console.CursorVisible = false;
 
             Grid = new List<char[]>(Rows);
+            DwarfPositon = Cols / 2;
         }
 
         private static char[] GenerateRocks(int cols)
         {
             char[] row = new char[cols];
-            //row.
-            int count = Generator.Next(5);
+            int count = Generator.Next(4);
             for (int i = 0; i < count; i++)
             {
                 int position = Generator.Next(0, cols - 1);
@@ -60,7 +62,23 @@ namespace ConsoleGames
                 {
                     size = Generator.Next(1, 3);
                 }
-                row[position] = Rocks[type];
+                // Ordinary rocks
+                if (size == 1)
+                {
+                    row[position] = Rocks[type];
+                }
+                // Bigger rocks
+                else if (size == 2)
+                {
+                    // Check for index out of range in left
+                    if (position > 0)
+                        row[position - 1] = Rocks[type];
+
+                    row[position] = Rocks[type];
+                    // Check for index out of range in right
+                    if (position < (cols - 1))
+                        row[position + 1] = Rocks[type];
+                }
             }
 
             return row;
@@ -73,6 +91,9 @@ namespace ConsoleGames
                 Console.SetCursorPosition(0, i);
                 Console.Write(grid[i]);
             }
+
+            Console.SetCursorPosition(DwarfPositon, Rows - 1);
+            Console.Write("{0}", Dwarf);
         }
     }
 }
