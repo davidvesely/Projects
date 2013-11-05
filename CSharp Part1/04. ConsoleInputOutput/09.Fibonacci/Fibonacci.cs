@@ -4,6 +4,7 @@
  */
 
 using System;
+using System.Numerics;
 
 namespace ConsoleInputOutput
 {
@@ -11,13 +12,13 @@ namespace ConsoleInputOutput
     {
         static void Main()
         {
-            decimal previous = 0;
-            decimal current = 1;
+            BigInteger previous = 0;
+            BigInteger current = 1;
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i <= 100; i++)
             {
                 Console.WriteLine("{0}", previous);
-                decimal temp = current;
+                BigInteger temp = current;
                 current = previous + current;
                 previous = temp;
             }

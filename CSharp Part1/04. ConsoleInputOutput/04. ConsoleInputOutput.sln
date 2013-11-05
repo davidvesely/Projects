@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09.Fibonacci", "09.Fibonacc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09.Fibonacci Fast Doubling", "09.Fibonacci Fast Doubling\09.Fibonacci Fast Doubling.csproj", "{0ED7E9C0-D38B-4FEC-8361-67EB58C86D85}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10.SumFractions", "10.SumFractions\10.SumFractions.csproj", "{80637065-E7A8-43C0-A3C2-8A338E9D8B90}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{0ED7E9C0-D38B-4FEC-8361-67EB58C86D85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0ED7E9C0-D38B-4FEC-8361-67EB58C86D85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0ED7E9C0-D38B-4FEC-8361-67EB58C86D85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80637065-E7A8-43C0-A3C2-8A338E9D8B90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80637065-E7A8-43C0-A3C2-8A338E9D8B90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80637065-E7A8-43C0-A3C2-8A338E9D8B90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80637065-E7A8-43C0-A3C2-8A338E9D8B90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
