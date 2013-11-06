@@ -68,7 +68,7 @@ namespace ConsoleGames
                     row[position] = Rocks[type];
                 }
                 // Bigger rocks
-                else if (size == 2)
+                else if (size > 1)
                 {
                     // Check for index out of range in left
                     if (position > 0)
