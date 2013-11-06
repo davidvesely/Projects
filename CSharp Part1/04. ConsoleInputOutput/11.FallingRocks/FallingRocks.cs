@@ -14,7 +14,7 @@ namespace ConsoleGames
         private static int DwarfPositon;
         private static string Dwarf = "(0)";
 
-        static void Main()
+        static void MainOld()
         {
             InitializeGame();
 
