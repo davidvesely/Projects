@@ -14,7 +14,7 @@ namespace ConsoleGames
         private static int DwarfPositon;
         private static string Dwarf = "(0)";
 
-        static void MainOld()
+        static void Main()
         {
             InitializeGame();
 
@@ -52,16 +52,19 @@ namespace ConsoleGames
         private static char[] GenerateRocks(int cols)
         {
             char[] row = new char[cols];
-            int count = Generator.Next(4);
+            // Generate maximum of 5 rocks at row
+            int count = Generator.Next(5);
             for (int i = 0; i < count; i++)
             {
                 int position = Generator.Next(0, cols - 1);
                 int type = Generator.Next(Rocks.Length - 1);
                 int size = 1;
+
                 if ((Rocks[type] == '+') || (Rocks[type] == '-'))
                 {
                     size = Generator.Next(1, 3);
                 }
+
                 // Ordinary rocks
                 if (size == 1)
                 {
