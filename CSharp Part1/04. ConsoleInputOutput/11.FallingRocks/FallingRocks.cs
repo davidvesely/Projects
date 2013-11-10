@@ -4,99 +4,160 @@ using System.Threading;
 
 namespace ConsoleGames
 {
+    class Rock
+    {
+        public int x, y;
+        public char symbol;
+        public ConsoleColor color;
+    }
+
     class FallingRocks
     {
-        private static readonly string Rocks = "^@*&+%$#!.;-";
-        private static Random Generator = new Random();
-        private const int Rows = 33;
+        private static char[] RockTypes = { '^', '@', '*', '&', '+', '%',
+                                           '$', '#', '!', '.', ';', '-' };
+
+        private static ConsoleColor[] RockColors = 
+        {
+            ConsoleColor.Blue,
+            ConsoleColor.Cyan,
+            ConsoleColor.Green,
+            ConsoleColor.Magenta,
+            ConsoleColor.Red,
+            ConsoleColor.White,
+            ConsoleColor.Yellow
+        };
+
+        private const int rockDensityAtRow = 4;
+        private const int Rows = 30;
         private const int Cols = 80;
-        private static List<char[]> Grid;
+        private static List<Rock> Rocks;
         private static int DwarfPositon;
-        private static string Dwarf = "(0)";
+        private static string Dwarf = "(@)";
 
         static void Main()
         {
             InitializeGame();
 
-            ConsoleKeyInfo keyPressed = new ConsoleKeyInfo();
-            do
+            while (true)
             {
+                MoveDwarf();
+                GenerateRocks();
+                MoveRocks();
+                // Check for collision
+                // Update scores
+                DrawGrid();
                 Thread.Sleep(150);
-                Grid.Insert(0, GenerateRocks(Cols));
-                if (Grid.Count > Rows)
-                {
-                    Grid.RemoveAt(Grid.Count - 1);
-                }
-
-                DrawGrid(Grid);
-
-                if (Console.KeyAvailable)
-                {
-                    keyPressed = Console.ReadKey(true);
-                }
-            } while (keyPressed.Key != ConsoleKey.Escape);
+            }
         }
 
         private static void InitializeGame()
         {
+            Rocks = new List<Rock>();
+
             Console.Clear();
             Console.SetWindowSize(Cols, Rows);
             Console.BufferWidth = Cols;
             Console.BufferHeight = Rows;
             Console.CursorVisible = false;
 
-            Grid = new List<char[]>(Rows);
+            // Center the dwarf
             DwarfPositon = Cols / 2;
         }
 
-        private static char[] GenerateRocks(int cols)
+        private static void MoveDwarf()
         {
-            char[] row = new char[cols];
-            // Generate maximum of 5 rocks at row
-            int count = Generator.Next(5);
-            for (int i = 0; i < count; i++)
+            if (Console.KeyAvailable)
             {
-                int position = Generator.Next(0, cols - 1);
-                int type = Generator.Next(Rocks.Length - 1);
-                int size = 1;
+                // Read the first pressed key
+                ConsoleKeyInfo keyPressed = Console.ReadKey(true);
 
-                if ((Rocks[type] == '+') || (Rocks[type] == '-'))
+                switch (keyPressed.Key)
                 {
-                    size = Generator.Next(1, 3);
-                }
-
-                // Ordinary rocks
-                if (size == 1)
-                {
-                    row[position] = Rocks[type];
-                }
-                // Bigger rocks
-                else if (size > 1)
-                {
-                    // Check for index out of range in left
-                    if (position > 0)
-                        row[position - 1] = Rocks[type];
-
-                    row[position] = Rocks[type];
-                    // Check for index out of range in right
-                    if (position < (cols - 1))
-                        row[position + 1] = Rocks[type];
+                    case ConsoleKey.LeftArrow:
+                        if (DwarfPositon > Dwarf.Length / 2)
+                            DwarfPositon--;
+                        break;
+                    case ConsoleKey.RightArrow:
+                        int maxRightPos = (Console.BufferWidth - 1) - Dwarf.Length / 2;
+                        if (DwarfPositon < maxRightPos)
+                            DwarfPositon++;
+                        break;
+                    case ConsoleKey.Escape:
+                        Console.WriteLine();
+                        Console.WriteLine("Good game! See you later.");
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        break;
                 }
             }
 
-            return row;
+            // Flush the buffer with keys
+            while (Console.KeyAvailable)
+                Console.ReadKey(true);
         }
 
-        private static void DrawGrid(List<char[]> grid)
+        private static void GenerateRocks()
         {
-            for (int i = 0; i < grid.Count; i++)
+            Random rand = new Random();
+            int count = rand.Next(rockDensityAtRow + 1);
+            for (int i = 0; i < count; i++)
             {
-                Console.SetCursorPosition(0, i);
-                Console.Write(grid[i]);
+                int position = rand.Next(Cols);
+                int type = rand.Next(RockTypes.Length);
+
+                Rock rock = new Rock();
+                rock.color = RockColors[rand.Next(RockColors.Length)];
+                rock.symbol = RockTypes[type];
+                rock.x = position;
+                rock.y = 0;
+                Rocks.Add(rock);
+            }
+        }
+
+        private static void MoveRocks()
+        {
+            // Move rocks with 1 row down, and remove
+            // the exiting rocks
+            for (int i = Rocks.Count - 1; i >= 0; i--)
+            {
+                // Remove the not needed rocks
+                if (Rocks[i].y == Rows - 1)
+                {
+                    Rocks.Remove(Rocks[i]);
+                }
+                else
+                {
+                    Rocks[i].y++;
+                }
+            }
+        }
+
+        private static void DrawGrid()
+        {
+            Console.Clear();
+
+            // Draw rocks
+            foreach (Rock rock in Rocks)
+            {
+                DrawAt(rock.x, rock.y, rock.symbol, rock.color);
             }
 
-            Console.SetCursorPosition(DwarfPositon, Rows - 1);
-            Console.Write("{0}", Dwarf);
+            // Draw dwarf
+            if (Dwarf.Length != 3)
+                throw new Exception("Dwarf should be three characters long");
+
+            DrawAt(DwarfPositon - 1, Rows - 1, Dwarf[0], ConsoleColor.Green);
+            DrawAt(DwarfPositon, Rows - 1, Dwarf[1], ConsoleColor.Green);
+            DrawAt(DwarfPositon + 1, Rows - 1, Dwarf[2], ConsoleColor.Green);
+        }
+
+        private static void DrawAt(int x, int y, char c,
+            ConsoleColor color = ConsoleColor.Gray)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.ForegroundColor = color;
+            Console.Write(c);
         }
     }
 }
