@@ -75,7 +75,8 @@ namespace ConsoleGames
                 switch (keyPressed.Key)
                 {
                     case ConsoleKey.LeftArrow:
-                        if (DwarfPositon > Dwarf.Length / 2)
+                        int minLeftPos = Dwarf.Length / 2;
+                        if (DwarfPositon > minLeftPos)
                             DwarfPositon--;
                         break;
                     case ConsoleKey.RightArrow:
