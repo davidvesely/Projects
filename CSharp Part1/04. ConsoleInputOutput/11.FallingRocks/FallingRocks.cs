@@ -33,6 +33,7 @@ namespace ConsoleGames
         private static List<Rock> Rocks;
         private static int DwarfPositon;
         private static string Dwarf = "(@)";
+        private static int Score = 0;
 
         static void Main()
         {
@@ -43,8 +44,8 @@ namespace ConsoleGames
                 MoveDwarf();
                 GenerateRocks();
                 MoveRocks();
-                // Check for collision
-                // Update scores
+                CollisionDetect();
+                Score++;
                 DrawGrid();
                 Thread.Sleep(150);
             }
@@ -129,6 +130,30 @@ namespace ConsoleGames
                 else
                 {
                     Rocks[i].y++;
+                }
+            }
+        }
+
+        private static void CollisionDetect()
+        {
+            // Check the last row with rocks where collision could appear
+            int end;
+            if (Rocks.Count < rockDensityAtRow)
+            {
+                end = Rocks.Count;
+            }
+            else
+            {
+                end = rockDensityAtRow;
+            }
+
+            for (int i = 0; i < end; i++)
+            {
+                if ((Rocks[i].y == Rows - 1) && (Rocks[i].x == DwarfPositon))
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Game over! You scored {0} points\a", Score);
+                    Environment.Exit(0);
                 }
             }
         }

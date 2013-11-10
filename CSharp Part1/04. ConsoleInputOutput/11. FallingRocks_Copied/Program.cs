@@ -36,7 +36,7 @@ class FallingRocksSolo
         public char symbol;
     }
 
-    static void Main()
+    static void MainOld()
     {
         ResetBuffer();
         Random randomGenerator = new Random();
