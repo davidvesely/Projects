@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeMachine", "CoffeeMachine\CoffeeMachine.csproj", "{4811ABE5-8963-49C1-8AC1-EB3127454A71}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrunkenNumbers", "DrunkenNumbers\DrunkenNumbers.csproj", "{202993F1-FD95-41D6-B90E-FE38FD58263C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4811ABE5-8963-49C1-8AC1-EB3127454A71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4811ABE5-8963-49C1-8AC1-EB3127454A71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4811ABE5-8963-49C1-8AC1-EB3127454A71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{202993F1-FD95-41D6-B90E-FE38FD58263C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{202993F1-FD95-41D6-B90E-FE38FD58263C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{202993F1-FD95-41D6-B90E-FE38FD58263C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{202993F1-FD95-41D6-B90E-FE38FD58263C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
