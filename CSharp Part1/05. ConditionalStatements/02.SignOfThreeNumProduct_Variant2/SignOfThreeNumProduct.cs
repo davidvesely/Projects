@@ -13,11 +13,11 @@ class SignOfThreeNumProduct
     static void Main()
     {
         Console.Write("Enter variable 1: ");
-        int variable1 = int.Parse(Console.ReadLine());
+        double variable1 = double.Parse(Console.ReadLine());
         Console.Write("Enter variable 2: ");
-        int variable2 = int.Parse(Console.ReadLine());
+        double variable2 = double.Parse(Console.ReadLine());
         Console.Write("Enter variable 3: ");
-        int variable3 = int.Parse(Console.ReadLine());
+        double variable3 = double.Parse(Console.ReadLine());
         int minusCount = 0;
 
         if (variable1 < 0)
