@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.BiggestOfThreeNumbers", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.SortThreeVariables", "04.SortThreeVariables\04.SortThreeVariables.csproj", "{D4C589B1-5342-44F8-B1C5-65564ABA9B07}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.NameOfDigit", "05.NameOfDigit\05.NameOfDigit.csproj", "{808D35E6-7F5D-487E-BC88-44A00F6A0EEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06.QuadraticEquationSolver", "06.QuadraticEquationSolver\06.QuadraticEquationSolver.csproj", "{91A0FE25-7787-41ED-AA8B-320F4A313323}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{D4C589B1-5342-44F8-B1C5-65564ABA9B07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4C589B1-5342-44F8-B1C5-65564ABA9B07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4C589B1-5342-44F8-B1C5-65564ABA9B07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{808D35E6-7F5D-487E-BC88-44A00F6A0EEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{808D35E6-7F5D-487E-BC88-44A00F6A0EEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{808D35E6-7F5D-487E-BC88-44A00F6A0EEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{808D35E6-7F5D-487E-BC88-44A00F6A0EEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91A0FE25-7787-41ED-AA8B-320F4A313323}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91A0FE25-7787-41ED-AA8B-320F4A313323}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91A0FE25-7787-41ED-AA8B-320F4A313323}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91A0FE25-7787-41ED-AA8B-320F4A313323}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
