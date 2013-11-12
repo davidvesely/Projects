@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11.NumberTextRepresentation
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.ExchangeVariables", "01.ExchangeVariables\01.ExchangeVariables.csproj", "{0FEF403D-453F-4F05-9A11-7BB66D5A4786}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.SignOfThreeNumProduct", "02.SignOfThreeNumProduct\02.SignOfThreeNumProduct.csproj", "{220C2B87-E005-46C9-84A4-96B67E9ECC55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.SignOfThreeNumProduct_Variant2", "02.SignOfThreeNumProduct_Variant2\02.SignOfThreeNumProduct_Variant2.csproj", "{FD710FD9-8CC0-46CC-8A25-0E9C7E7981CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{0FEF403D-453F-4F05-9A11-7BB66D5A4786}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FEF403D-453F-4F05-9A11-7BB66D5A4786}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FEF403D-453F-4F05-9A11-7BB66D5A4786}.Release|Any CPU.Build.0 = Release|Any CPU
+		{220C2B87-E005-46C9-84A4-96B67E9ECC55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{220C2B87-E005-46C9-84A4-96B67E9ECC55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{220C2B87-E005-46C9-84A4-96B67E9ECC55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{220C2B87-E005-46C9-84A4-96B67E9ECC55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD710FD9-8CC0-46CC-8A25-0E9C7E7981CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD710FD9-8CC0-46CC-8A25-0E9C7E7981CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD710FD9-8CC0-46CC-8A25-0E9C7E7981CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD710FD9-8CC0-46CC-8A25-0E9C7E7981CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
