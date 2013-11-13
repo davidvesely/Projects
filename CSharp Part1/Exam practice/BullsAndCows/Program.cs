@@ -15,37 +15,41 @@ namespace BullsAndCows
 
             for (int i = 1111; i <= 9999; i++)
             {
-                string guessStr = i.ToString();
-                bool[] bullsArr = new bool[4];
+                string guesNumber = i.ToString();
+                char[] secretNumCh = secretNumber.ToCharArray();
+                char[] guessNumCh = guesNumber.ToCharArray();
+                if ((guessNumCh[0] == '0') || (guessNumCh[1] == '0') ||
+                    (guessNumCh[2] == '0') || (guessNumCh[3] == '0'))
+                {
+                    continue;
+                }
+
                 int currBull = 0, currCow = 0;
 
                 // Check for bulls
-                for (int j = 0; j <= 3; j++)
+                for (int j = 0; j < 4; j++)
                 {
-                    if (guessStr[j] == secretNumber[j])
+                    if (guessNumCh[j] == secretNumCh[j])
                     {
-                        bullsArr[j] = true;
+                        // Mark them as bulls
+                        guessNumCh[j] = '@';
+                        secretNumCh[j] = '@';
                         currBull++;
                     }
                 }
 
                 // Check for cows
-                for (int j = 0; j <= 3; j++)
+                for (int j = 0; j < 4; j++)
                 {
-                    if (bullsArr[j])
+                    if (guessNumCh[j] != '@')
                     {
-                        continue;
-                    }
-                    else
-                    {
-                        for (int k = 0; k <= 3; k++)
+                        for (int k = 0; k < 4; k++)
                         {
-                            if (bullsArr[k])
+                            if ((secretNumCh[k] != '@') &&
+                                (secretNumCh[k] == guessNumCh[j]))
                             {
-                                continue;
-                            }
-                            else if (secretNumber[j] == guessStr[k])
-                            {
+                                guessNumCh[j] = '@';
+                                secretNumCh[k] = '@';
                                 currCow++;
                                 break;
                             }
@@ -53,9 +57,9 @@ namespace BullsAndCows
                     }
                 }
 
-                if ((currBull == bulls) && (currCow == cows) && (!guessStr.Contains("0")))
+                if ((currBull == bulls) && (currCow == cows))
                 {
-                    output.Append(guessStr);
+                    output.Append(i.ToString());
                     output.Append(" ");
                 }
             }
