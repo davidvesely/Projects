@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fire", "Fire\Fire.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuronMapping", "NeuronMapping\NeuronMapping.csproj", "{1109DC90-D7A0-42D1-8A62-9C65AE6F3BA3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Garden", "Garden\Garden.csproj", "{04B3F5FC-3875-4D50-857B-7088D78C36BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{1109DC90-D7A0-42D1-8A62-9C65AE6F3BA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1109DC90-D7A0-42D1-8A62-9C65AE6F3BA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1109DC90-D7A0-42D1-8A62-9C65AE6F3BA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04B3F5FC-3875-4D50-857B-7088D78C36BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04B3F5FC-3875-4D50-857B-7088D78C36BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04B3F5FC-3875-4D50-857B-7088D78C36BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04B3F5FC-3875-4D50-857B-7088D78C36BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
