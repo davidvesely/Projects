@@ -35,7 +35,9 @@ class SignOfThreeNumProduct
             minusCount++;
         }
 
-        if (minusCount == 0 || minusCount == 2)
+        // If we have even count of minuses the result is positive
+        // minus with minus gives plus
+        if (minusCount % 2 == 0)
         {
             Console.WriteLine("The product will be positive.");
         }
