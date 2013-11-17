@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JustCodeSettings Version="0.0" Timestamp="06472b64-09b7-4397-820f-5fd241a2f7c9">
+  <IgnoredErrorsAndWarningsSettings xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <IgnoredErrorsAndWarnings Version="2">
+      <FilePath>
+        <FileRelativePath>08.GreatestCommonDivisor/GreatestCommonDivisor.cs</FileRelativePath>
+        <ProjectRelativePath>08.GreatestCommonDivisor/08.GreatestCommonDivisor.csproj</ProjectRelativePath>
+        <IgnoredElement>
+          <TextualIdentifier>15502139143658220474</TextualIdentifier>
+        </IgnoredElement>
+      </FilePath>
+    </IgnoredErrorsAndWarnings>
+  </IgnoredErrorsAndWarningsSettings>
+</JustCodeSettings>
