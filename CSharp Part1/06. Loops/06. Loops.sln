@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06.CustomSum", "06.CustomSu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07.FibonacciSum", "07.Fibonacci\07.FibonacciSum.csproj", "{12F767EB-AEDA-4539-8E37-FC9D283080D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08.GreatestCommonDivisor", "08.GreatestCommonDivisor\08.GreatestCommonDivisor.csproj", "{5A5432D7-9B58-4B54-A5C6-6E0A4F73A9F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{12F767EB-AEDA-4539-8E37-FC9D283080D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12F767EB-AEDA-4539-8E37-FC9D283080D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12F767EB-AEDA-4539-8E37-FC9D283080D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A5432D7-9B58-4B54-A5C6-6E0A4F73A9F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A5432D7-9B58-4B54-A5C6-6E0A4F73A9F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A5432D7-9B58-4B54-A5C6-6E0A4F73A9F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A5432D7-9B58-4B54-A5C6-6E0A4F73A9F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
