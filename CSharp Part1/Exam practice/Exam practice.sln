@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1. Garden", "Garden\1. Gard
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2. SecretNumbers", "2. SecretNumbers\2. SecretNumbers.csproj", "{8F06AAC6-3DAF-4199-A6CE-AFD3555FFD6C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4. Bat Goiko Tower", "4. Bat Goiko Tower\4. Bat Goiko Tower.csproj", "{CEBDB2E1-F3DF-4300-9287-727549EF86D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3. CardWars", "3. CardWars\3. CardWars.csproj", "{A3AA104E-CDB4-4A76-87A9-0FFF83A5C61D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{8F06AAC6-3DAF-4199-A6CE-AFD3555FFD6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F06AAC6-3DAF-4199-A6CE-AFD3555FFD6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F06AAC6-3DAF-4199-A6CE-AFD3555FFD6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEBDB2E1-F3DF-4300-9287-727549EF86D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEBDB2E1-F3DF-4300-9287-727549EF86D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEBDB2E1-F3DF-4300-9287-727549EF86D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEBDB2E1-F3DF-4300-9287-727549EF86D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3AA104E-CDB4-4A76-87A9-0FFF83A5C61D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3AA104E-CDB4-4A76-87A9-0FFF83A5C61D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3AA104E-CDB4-4A76-87A9-0FFF83A5C61D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3AA104E-CDB4-4A76-87A9-0FFF83A5C61D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
