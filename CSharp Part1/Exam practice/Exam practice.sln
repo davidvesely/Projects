@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeMachine", "CoffeeMachine\CoffeeMachine.csproj", "{4811ABE5-8963-49C1-8AC1-EB3127454A71}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1. CoffeeMachine", "CoffeeMachine\1. CoffeeMachine.csproj", "{4811ABE5-8963-49C1-8AC1-EB3127454A71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrunkenNumbers", "DrunkenNumbers\DrunkenNumbers.csproj", "{202993F1-FD95-41D6-B90E-FE38FD58263C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2. DrunkenNumbers", "DrunkenNumbers\2. DrunkenNumbers.csproj", "{202993F1-FD95-41D6-B90E-FE38FD58263C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BullsAndCows", "BullsAndCows\BullsAndCows.csproj", "{053BF4BE-389B-4E59-A5EF-97BDF94C0B04}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3. BullsAndCows", "BullsAndCows\3. BullsAndCows.csproj", "{053BF4BE-389B-4E59-A5EF-97BDF94C0B04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fire", "Fire\Fire.csproj", "{C3BDA892-9B35-4051-813C-45CF2AACD1BD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4. Fire", "Fire\4. Fire.csproj", "{C3BDA892-9B35-4051-813C-45CF2AACD1BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuronMapping", "NeuronMapping\NeuronMapping.csproj", "{1109DC90-D7A0-42D1-8A62-9C65AE6F3BA3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5. NeuronMapping", "NeuronMapping\5. NeuronMapping.csproj", "{1109DC90-D7A0-42D1-8A62-9C65AE6F3BA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Garden", "Garden\Garden.csproj", "{04B3F5FC-3875-4D50-857B-7088D78C36BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1. Garden", "Garden\1. Garden.csproj", "{04B3F5FC-3875-4D50-857B-7088D78C36BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
