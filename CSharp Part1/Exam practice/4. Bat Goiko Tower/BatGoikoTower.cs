@@ -5,7 +5,7 @@ class BatGoikoTower
 {
     static void Main()
     {
-        int height = Math.Abs(int.Parse(Console.ReadLine()));
+        int height = int.Parse(Console.ReadLine());
         int crossbeamHeight = 0;
         int crossbeamCurrent = 0;
         for (int i = 0; i < height; i++)
