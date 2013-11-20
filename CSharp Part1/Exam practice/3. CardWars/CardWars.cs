@@ -8,7 +8,7 @@ class CardWars
 {
     private static readonly string[] cards = new string[] { "", "A", "10", "9", "8", "7", "6", "5", "4", "3", "2", "J", "Q", "K" };
 
-    static void MainMine()
+    static void Main()
     {
         if (Environment.CurrentDirectory.ToLower().EndsWith("bin\\debug"))
         {
