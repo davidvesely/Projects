@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4. Bat Goiko Tower", "4. Ba
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3. CardWars", "3. CardWars\3. CardWars.csproj", "{A3AA104E-CDB4-4A76-87A9-0FFF83A5C61D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5. Bittris", "5. Bittris\5. Bittris.csproj", "{1063313D-8451-4663-AA86-DF02067B4502}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{A3AA104E-CDB4-4A76-87A9-0FFF83A5C61D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3AA104E-CDB4-4A76-87A9-0FFF83A5C61D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3AA104E-CDB4-4A76-87A9-0FFF83A5C61D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1063313D-8451-4663-AA86-DF02067B4502}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1063313D-8451-4663-AA86-DF02067B4502}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1063313D-8451-4663-AA86-DF02067B4502}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1063313D-8451-4663-AA86-DF02067B4502}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
