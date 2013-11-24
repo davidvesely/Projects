@@ -7,9 +7,11 @@ class Bittris
 {
     static void Main()
     {
+        bool toDrawPlayfield = false;
         if (Environment.CurrentDirectory.ToLower().EndsWith("bin\\debug"))
         {
             Console.SetIn(new StreamReader("input.txt"));
+            toDrawPlayfield = true;
         }
 
         bool gameOver = false;
@@ -17,7 +19,7 @@ class Bittris
         int[] playfield = new int[4];
         int N = int.Parse(Console.ReadLine());
 
-        for (int i = 0; (i < N) && (gameOver == false); i++)
+        for (int i = 0; (i < N) && (gameOver == false); i += 4)
         {
             int row = int.Parse(Console.ReadLine());
             int currentScore = BitCount(row);
@@ -28,7 +30,7 @@ class Bittris
             int element = row & 255; // Get only low 8 bits
 
             int currentRow = 0;
-            DrawPlayfield(playfield, element, currentRow); // test
+            DrawPlayfield(playfield, element, currentRow, toDrawPlayfield); // test
             for (int j = 0; j < 3; j++)
             {
                 switch (moves[j])
@@ -53,11 +55,17 @@ class Bittris
                     (currentRow < 3))
                 {
                     currentRow++; // move down
-                    DrawPlayfield(playfield, element, currentRow); // test
                     if (currentRow == 3) // Last row
                     {
                         playfield[currentRow] |= element;
+                        if (playfield[currentRow] == 255)
+                        {
+                            playfield[currentRow] = 0;
+                            currentScore *= 10;
+                            element = 0;
+                        }
                     }
+                    DrawPlayfield(playfield, element, currentRow, toDrawPlayfield); // test
                 }
                 else
                 {
@@ -74,7 +82,7 @@ class Bittris
                     {
                         gameOver = true;
                     }
-                    DrawPlayfield(playfield, element, currentRow); // test
+                    DrawPlayfield(playfield, element, currentRow, toDrawPlayfield); // test
                     break;
                 }
             }
@@ -85,8 +93,11 @@ class Bittris
         Console.WriteLine(score);
     }
 
-    private static void DrawPlayfield(int[] playfield, int element, int currentRow)
+    private static void DrawPlayfield(int[] playfield, int element, int currentRow, bool toDrawPlayfield)
     {
+        if (!toDrawPlayfield)
+            return;
+
         Console.WriteLine();
         for (int i = 0; i < 4; i++)
         {
