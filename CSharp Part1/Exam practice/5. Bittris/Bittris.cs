@@ -19,7 +19,6 @@ class Bittris
 
         for (int i = 0; (i < N) && (gameOver == false); i++)
         {
-            Console.WriteLine(); //test
             int row = int.Parse(Console.ReadLine());
             int currentScore = BitCount(row);
             string[] moves = new string[3];
@@ -27,8 +26,9 @@ class Bittris
                 moves[j] = Console.ReadLine();
 
             int element = row & 255; // Get only low 8 bits
-            Console.WriteLine(Convert.ToString(element | playfield[0], 2).PadLeft(8, '0')); // test
+
             int currentRow = 0;
+            DrawPlayfield(playfield, element, currentRow); // test
             for (int j = 0; j < 3; j++)
             {
                 switch (moves[j])
@@ -53,7 +53,11 @@ class Bittris
                     (currentRow < 3))
                 {
                     currentRow++; // move down
-                    Console.WriteLine(Convert.ToString(element | playfield[currentRow], 2).PadLeft(8, '0')); // test
+                    DrawPlayfield(playfield, element, currentRow); // test
+                    if (currentRow == 3) // Last row
+                    {
+                        playfield[currentRow] |= element;
+                    }
                 }
                 else
                 {
@@ -64,12 +68,38 @@ class Bittris
                     {
                         playfield[currentRow] = 0;
                         currentScore *= 10;
+                        element = 0;
                     }
+                    else if (currentRow == 0)
+                    {
+                        gameOver = true;
+                    }
+                    DrawPlayfield(playfield, element, currentRow); // test
                     break;
                 }
             }
-
             score += currentScore;
+        }
+
+        // The final score
+        Console.WriteLine(score);
+    }
+
+    private static void DrawPlayfield(int[] playfield, int element, int currentRow)
+    {
+        Console.WriteLine();
+        for (int i = 0; i < 4; i++)
+        {
+            string print;
+            if (i == currentRow)
+            {
+                print = Convert.ToString(playfield[i] | element, 2);
+            }
+            else
+            {
+                print = Convert.ToString(playfield[i], 2);
+            }
+            Console.WriteLine(print.PadLeft(8, '0'));
         }
     }
 
