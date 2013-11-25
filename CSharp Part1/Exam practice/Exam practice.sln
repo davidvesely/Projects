@@ -25,6 +25,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5. Bittris", "5. Bittris\5.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1. Cartesian Coordinate System", "1. Cartesian Coordinate System\1. Cartesian Coordinate System.csproj", "{DFA29A64-C64C-4531-895D-8ED1FD5963C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2. Miss Cat 2011", "2. Miss Cat 2011\2. Miss Cat 2011.csproj", "{FCDC9A46-90CD-4A48-885B-DB6E6658825E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3. Forest Road", "3. Forest Road\3. Forest Road.csproj", "{D74C43B4-B595-4B7B-B47E-7D28F42EF891}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4. Binary Digits Count", "4. Binary Digits Count\4. Binary Digits Count.csproj", "{E8546480-05EC-4FB0-B268-8ED3C9D8DBF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +81,18 @@ Global
 		{DFA29A64-C64C-4531-895D-8ED1FD5963C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFA29A64-C64C-4531-895D-8ED1FD5963C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFA29A64-C64C-4531-895D-8ED1FD5963C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCDC9A46-90CD-4A48-885B-DB6E6658825E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCDC9A46-90CD-4A48-885B-DB6E6658825E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCDC9A46-90CD-4A48-885B-DB6E6658825E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCDC9A46-90CD-4A48-885B-DB6E6658825E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D74C43B4-B595-4B7B-B47E-7D28F42EF891}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D74C43B4-B595-4B7B-B47E-7D28F42EF891}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D74C43B4-B595-4B7B-B47E-7D28F42EF891}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D74C43B4-B595-4B7B-B47E-7D28F42EF891}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8546480-05EC-4FB0-B268-8ED3C9D8DBF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8546480-05EC-4FB0-B268-8ED3C9D8DBF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8546480-05EC-4FB0-B268-8ED3C9D8DBF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8546480-05EC-4FB0-B268-8ED3C9D8DBF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
