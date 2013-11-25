@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1. Math Expression", "1. Math Expression\1. Math Expression.csproj", "{9FD9A688-1495-40D6-9001-F32A37D25DC4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2. Least Majority Multiple", "2. Least Majority Multiple\2. Least Majority Multiple.csproj", "{7FAB09CB-C8F5-46CF-83D3-521F48EA4661}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9FD9A688-1495-40D6-9001-F32A37D25DC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FD9A688-1495-40D6-9001-F32A37D25DC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FD9A688-1495-40D6-9001-F32A37D25DC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FAB09CB-C8F5-46CF-83D3-521F48EA4661}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FAB09CB-C8F5-46CF-83D3-521F48EA4661}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FAB09CB-C8F5-46CF-83D3-521F48EA4661}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FAB09CB-C8F5-46CF-83D3-521F48EA4661}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
