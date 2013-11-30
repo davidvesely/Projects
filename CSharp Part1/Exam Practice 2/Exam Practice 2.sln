@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5. Fall Down", "5. Fall Dow
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1. Ship Damage", "1. Ship Damage\1. Ship Damage.csproj", "{0E600482-52D6-4F6D-8CEA-EC2754ED3FC5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2. Tribonacci", "2. Tribonacci\2. Tribonacci.csproj", "{002DE5B4-40A7-47BE-AD8B-0E990C741191}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{0E600482-52D6-4F6D-8CEA-EC2754ED3FC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E600482-52D6-4F6D-8CEA-EC2754ED3FC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E600482-52D6-4F6D-8CEA-EC2754ED3FC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{002DE5B4-40A7-47BE-AD8B-0E990C741191}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{002DE5B4-40A7-47BE-AD8B-0E990C741191}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{002DE5B4-40A7-47BE-AD8B-0E990C741191}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{002DE5B4-40A7-47BE-AD8B-0E990C741191}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
