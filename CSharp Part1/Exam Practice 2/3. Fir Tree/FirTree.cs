@@ -10,7 +10,8 @@ class FirTree
         string firstRow = null;
         for (int i = 0; i < height - 1; i++)
         {
-            string dotPart = new string('.', (height + 1) / 2 - i);
+            int dotCount = height - 2 - i;
+            string dotPart = new string('.', dotCount);
             string asteriskPart = new string('*', i);
             string row = string.Format("{0}{1}*{2}{3}", dotPart, asteriskPart, asteriskPart, dotPart);
             if (i == 0)
