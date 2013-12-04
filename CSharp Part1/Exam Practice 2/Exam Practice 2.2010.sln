@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4. Telerik Logo", "4. Teler
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1. Sevenland Numbers", "1. Sevenland Numbers\1. Sevenland Numbers.csproj", "{9DC9BA30-1B6B-4162-B507-FA8FDC803517}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2. A-nacci", "2. A-nacci\2. A-nacci.csproj", "{5474D02F-C170-4E77-B528-91F266F3E959}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -154,6 +156,16 @@ Global
 		{9DC9BA30-1B6B-4162-B507-FA8FDC803517}.Release|Mixed Platforms.Build.0 = Release|x86
 		{9DC9BA30-1B6B-4162-B507-FA8FDC803517}.Release|x86.ActiveCfg = Release|x86
 		{9DC9BA30-1B6B-4162-B507-FA8FDC803517}.Release|x86.Build.0 = Release|x86
+		{5474D02F-C170-4E77-B528-91F266F3E959}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{5474D02F-C170-4E77-B528-91F266F3E959}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{5474D02F-C170-4E77-B528-91F266F3E959}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{5474D02F-C170-4E77-B528-91F266F3E959}.Debug|x86.ActiveCfg = Debug|x86
+		{5474D02F-C170-4E77-B528-91F266F3E959}.Debug|x86.Build.0 = Debug|x86
+		{5474D02F-C170-4E77-B528-91F266F3E959}.Release|Any CPU.ActiveCfg = Release|x86
+		{5474D02F-C170-4E77-B528-91F266F3E959}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{5474D02F-C170-4E77-B528-91F266F3E959}.Release|Mixed Platforms.Build.0 = Release|x86
+		{5474D02F-C170-4E77-B528-91F266F3E959}.Release|x86.ActiveCfg = Release|x86
+		{5474D02F-C170-4E77-B528-91F266F3E959}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
