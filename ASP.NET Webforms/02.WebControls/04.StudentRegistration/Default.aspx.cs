@@ -19,5 +19,10 @@ namespace _04.StudentRegistration
                 }
             }
         }
+
+        protected void ButtonConfirmation_OnClick(object sender, EventArgs e)
+        {
+            LiteralConfirm.Text = "Confirm dialog is clicked.";
+        }
     }
 }
