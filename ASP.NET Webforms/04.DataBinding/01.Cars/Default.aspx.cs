@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
+using System.Data.Entity;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -9,66 +12,62 @@ namespace _01.Cars
 {
     public partial class Default : System.Web.UI.Page
     {
-        private List<Producer> CreateProducers()
-        {
-            var producers = new List<Producer>();
-
-            producers.Add(new Producer()
-            {
-                Name = "Audi",
-                Models = new List<Model>()
-                {
-                    new Model() { Name = "50", Engine = Engines.Petrol, Year = 1990 },
-                    new Model() { Name = "60", Engine = Engines.Diesel, Year = 1999 },
-                    new Model() { Name = "100", Engine = Engines.Electric, Year = 2000 },
-                    new Model() { Name = "200", Engine = Engines.Hybrid, Year = 2005 },
-                }
-            });
-
-            producers.Add(new Producer()
-            {
-                Name = "Bmw",
-                Models = new List<Model>()
-                {
-                    new Model() { Name = "Z1", Engine = Engines.Petrol, Year = 1990 },
-                    new Model() { Name = "Z2", Engine = Engines.Diesel, Year = 1999 },
-                    new Model() { Name = "Z3", Engine = Engines.Electric, Year = 2000 },
-                    new Model() { Name = "Z4", Engine = Engines.Hybrid, Year = 2005 },
-                }
-            });
-
-            producers.Add(new Producer()
-            {
-                Name = "Opel",
-                Models = new List<Model>()
-                {
-                    new Model() { Name = "Kadet", Engine = Engines.Petrol, Year = 1990 },
-                    new Model() { Name = "Zafira", Engine = Engines.Diesel, Year = 1999 },
-                    new Model() { Name = "Corsa", Engine = Engines.Electric, Year = 2000 },
-                    new Model() { Name = "Tigra", Engine = Engines.Hybrid, Year = 2005 },
-                }
-            });
-            return producers;
-        }
-
         protected void Page_PreRender(object sender, EventArgs e)
         {
-            var producers = CreateProducers();
+            var dbEntities = new CarsEntities();
+
             if (!Page.IsPostBack)
             {
-                DropDownListProducer.DataSource = producers;
+                var queryProducers = from p in dbEntities.Producers select p;
+                
+                DropDownListProducer.DataSource = queryProducers.ToList();
                 DropDownListProducer.DataTextField = "Name";
+                DropDownListProducer.DataValueField = "ID";
                 DropDownListProducer.DataBind();
+
+                var extras = new List<string>()
+            {
+                "air conditioner", "cd player", "seat heating", "shibidah"
+            };
+                CheckBoxListExtras.DataSource = extras;
+                CheckBoxListExtras.DataBind();
             }
 
 
             int ind = DropDownListProducer.SelectedIndex;
-            if (ind >= 0)
+            if (ind < 0) return;
+            int producerId = int.Parse(DropDownListProducer.SelectedValue);
+            var queryModels = from m in dbEntities.Models
+                              where m.ProducerID == producerId
+                              select m;
+            DropDownListModel.DataSource = queryModels.ToList();
+            DropDownListModel.DataTextField = "Name";
+            DropDownListModel.DataValueField = "ID";
+            DropDownListModel.DataBind();
+        }
+
+        protected void ButtonSubmit_OnClick(object sender, EventArgs e)
+        {
+            var sb = new StringBuilder();
+            sb.Append("Producer: ");
+            sb.Append(DropDownListProducer.SelectedItem.Text);
+            sb.Append("<br />");
+
+            sb.Append("Model: ");
+            sb.Append(DropDownListModel.SelectedItem.Text);
+            sb.Append("<br />");
+
+            sb.Append("Extras: ");
+            foreach (ListItem item in CheckBoxListExtras.Items)
             {
-                DropDownListModel.DataSource = producers[ind].Models;
-                DropDownListModel.DataTextField = "Name";
-                DropDownListModel.DataBind();
+                if (item.Selected)
+                {
+                    sb.Append(item.Text);
+                    sb.Append("<br />");
+                }
             }
+
+            LiteralSelected.Text = sb.ToString();
         }
     }
 }
