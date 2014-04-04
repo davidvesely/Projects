@@ -5,13 +5,18 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using HtmlAgilityPack;
 
 namespace BibleVerses
 {
     public class VerseReader
     {
         // 0 - Book; 1 - Chapter; 2 - start verse; 3 - end verse
-        private const string READER_URL = @"http://bible.netbg.com/bible/paralel/bible.php?b={0}&c={1}&r=&v1={2}&v2={3}&vt=1&c7=1&st=&sa=1&rt=2&l=1&cm=2";
+        // Veren
+        //private const string READER_URL = @"http://bible.netbg.com/bible/paralel/bible.php?b={0}&c={1}&r=&v1={2}&v2={3}&vt=1&c7=1&st=&sa=1&rt=2&l=1&cm=2";
+        // Bible community
+        private const string READER_URL =
+            @"http://bible.netbg.com/bible/paralel/bible.php?b={0}&c={1}&r=&v1={2}&v2={3}&vt=1&c6=1&st=&sa=1&rt=2&l=1&cm=2";
 
         private string[] books = new string[] { "genesis", "exodus", "leviticus", "numbers", "deuteronomy", "joshua", "judges",
             "ruth", "1samuel", "2samuel", "1kings", "2kings", "1chronicles", "2chronicles", "ezra", "nehemiah", "esther", "job",
@@ -29,7 +34,7 @@ namespace BibleVerses
             "1 Коринтяни", "2 Коринтяни", "Галатяни", "Ефесяни", "Филипяни", "Колосяни", "1 Солунци", "2 Солунци", "1 Тимотей",
             "2 Тимотей", "Тит", "Филимон", "Евреи", "Откровение" };
 
-        private static string RetrieveText(string book, int chapter, int start, int end)
+        private static string RetrieveRawText(string book, int chapter, int start, int end)
         {
             string url = string.Format(READER_URL, book, chapter, start, end);
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -41,9 +46,26 @@ namespace BibleVerses
             return responseString;
         }
 
+        private static List<string> ExtractCleanText(string raw)
+        {
+            HtmlDocument document = new HtmlDocument();
+            document.LoadHtml(raw);
+            HtmlNode intableNode = document.GetElementbyId("intable");
+            foreach (HtmlNode childNode in intableNode.ChildNodes)
+            {
+                string nodeText = childNode.InnerText;
+                int index = nodeText.LastIndexOf("&nbsp;");
+                nodeText = nodeText.Substring(index + 6).Trim().Replace("\n", string.Empty);
+                Console.WriteLine(nodeText);
+            }
+
+            return null;
+        }
+
         static void Main(string[] args)
         {
-            //Console.WriteLine(RetrieveText("genesis", 1, 2, 5));
+            string bibleText = RetrieveRawText("genesis", 1, 32, 33);
+            ExtractCleanText(bibleText);
         }
     }
 }
