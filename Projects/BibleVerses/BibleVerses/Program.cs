@@ -29,16 +29,49 @@ namespace BibleVerses
         public int Chapter { get; set; }
         public int Start { get; set; }
         public int End { get; set; }
+        public string FullLocation { get; set; }
 
         public override string ToString()
         {
             return string.Format("Book {0}, Chapter {1}, Verses from {2} to {3}",
                 Book, Chapter, Start, End);
         }
+
+        public bool IsOverlaping(BiblePlace otherPlace)
+        {
+            if ((this.BookBG == otherPlace.BookBG) && (this.Chapter == otherPlace.Chapter))
+            {
+                int a1, a2, b1, b2;
+                a1 = this.Start;
+                a2 = this.End;
+                b1 = otherPlace.Start;
+                b2 = otherPlace.End;
+                if (IsBetween(a1, b1, b2) || IsBetween(a2, b1, b2) ||
+                    IsBetween(b1, a1, a2) || IsBetween(b2, a1, a2))
+                {
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+
+        private bool IsBetween(int number, int start, int end)
+        {
+            return (start <= number) && (number <= end);
+        }
+    }
+
+    public class BibleVerse
+    {
+        public string Text { get; set; }
+        public BiblePlace Place { get; set; }
     }
 
     public class VerseReader
     {
+        private static int startTextIndex = 1;
+        private static readonly bool ShouldAppend = false;
         // 0 - Book; 1 - Chapter; 2 - start verse; 3 - end verse
         // Veren
         //private const string READER_URL = @"http://bible.netbg.com/bible/paralel/bible.php?b={0}&c={1}&r=&v1={2}&v2={3}&vt=1&c7=1&st=&sa=1&rt=2&l=1&cm=2";
@@ -56,7 +89,7 @@ namespace BibleVerses
 
         public static string[] BooksBG = new string[] { "Битие", "Изход", "Левит", "Числа", "Второзаконие", "Исус Навиев", "Съдии",
             "Рут", "1 Царе", "2 Царе", "3 Царе", "4 Царе", "1 Летописи", "2 Летописи", "Ездра", "Неемия", "Естир", "Йов",
-            "Псалми", "Притчи", "Еклесиаст", "Песен на песните", "Исая", "Еремия", "Плач Еремиев", "Езекил", "Даниил", "Осия",
+            "Псалми", "Притчи", "Еклесиаст", "Песен на песните", "Исая", "Еремия", "Плач Еремиев", "Езекил", "Данаил", "Осия",
             "Йоил", "Амос", "Авдий", "Йона", "Михей", "Наум", "Авакум", "Софоний", "Агей", "Захария", "Малахия", "Матей", "Марко",
             "Лука", "Йоан", "Деяния", "Яков", "1 Петрово", "2 Петрово", "1 Йоаново", "2 Йоаново", "3 Йоаново", "Юда", "Римляни",
             "1 Коринтяни", "2 Коринтяни", "Галатяни", "Ефесяни", "Филипяни", "Колосяни", "1 Солунци", "2 Солунци", "1 Тимотей",
@@ -68,9 +101,7 @@ namespace BibleVerses
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.Default);
-
-            string responseString = reader.ReadToEnd();
-
+            string responseString = reader.ReadToEnd().Replace("<br>", " ");
             return responseString;
         }
 
@@ -80,30 +111,47 @@ namespace BibleVerses
             document.LoadHtml(raw);
             HtmlNode intableNode = document.GetElementbyId("intable");
 
-            return string.Join(" ", 
+            string cleanText = 
+                string.Join(" ", 
                 intableNode.ChildNodes
                 .Select(childNode =>
                     childNode.InnerText
                     .Substring(childNode.InnerText.LastIndexOf("&nbsp;") + 6)
                     .Replace("\n", string.Empty)
                     .Replace("&nbsp;", " ")
-                    .Trim()));
+                    .Trim())
+                );
+            // Capitalize first letter
+            if (cleanText.Length > 1)
+                cleanText = char.ToUpper(cleanText[0]) + cleanText.Substring(1);
+            return cleanText;
         }
 
-        private static IEnumerable<string> GetAllTexts()
+        private static List<BibleVerse> GetAllTexts()
         {
-            List<string> texts = new List<string>();
+            List<BibleVerse> texts = new List<BibleVerse>();
             using (StreamReader sr = new StreamReader("d:\\texts.txt", Encoding.Default))
             {
                 string line;
                 while ((line = sr.ReadLine()) != null)
                 {
-                    BiblePlace place = GetBiblePlace(line);
-                    string rawText = RetrieveRawText(place);
-                    string cleanText = ExtractCleanText(rawText);
-                    texts.Add(cleanText);
-                    Console.WriteLine("Place {0} is OK", line);
-                    Thread.Sleep(500);
+                    if (line == "break")
+                        break;
+
+                    try
+                    {
+                        BiblePlace place = GetBiblePlace(line);
+                        string rawText = RetrieveRawText(place);
+                        string cleanText = ExtractCleanText(rawText);
+                        texts.Add(new BibleVerse() { Place = place, Text = cleanText });
+                        Console.WriteLine("Place {0} is OK", line);
+                        Thread.Sleep(500);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Problem with row: {0}", line);
+                        Console.WriteLine("      {0}", ex.Message);
+                    }
                 }
             }
             return texts;
@@ -141,48 +189,91 @@ namespace BibleVerses
                 BookBG = book,
                 Chapter = chapter,
                 Start = verseStart,
-                End = verseEnd
+                End = verseEnd,
+                FullLocation = line
             };
         }
 
-        private static void CreateDoc(List<string> verseList)
+        private static void CreateDoc(List<BibleVerse> verseList)
         {
-            WordApplication mf = new WordApplication();
-            mf.Documents.Add();
+#if DEBUG
+            string fileName = "D:\\test.docx";
+            Console.WriteLine("Filename is {0}\n", fileName);
+#else
+            Console.Write("\nPlease enter the destination docx file: ");
+            string fileName = Console.ReadLine();
+#endif
+            bool isNewFile = true;
+            WordApplication application = new WordApplication();
+            // Delete the file before writing
+            if (!ShouldAppend)
+                File.Delete(fileName);
 
-            //Insert a paragraph at the beginning of the document
-            Paragraph oPara1 = mf.ActiveDocument.Content.Paragraphs.Add();
-            oPara1.Range.Text = "Test";
-            //oPara1.Range.Font.Bold = True
-            //oPara1.Format.SpaceAfter = 24    //24 pt spacing after paragraph.
-            oPara1.Range.InlineShapes.AddPicture("D:\\pic.jpg");
-            //add picture
-            oPara1.Range.InsertParagraphAfter();
+            if (File.Exists(fileName))
+            {
+                application.Documents.Open(fileName);
+                isNewFile = false;
+            }
+            else
+            {
+                application.Documents.Add();
+            }
 
-            //dynamic sign = mf.ActiveDocument.Signatures.AddSignatureLine(null);
-            //sign.Sign(null, "Arjun Paudel", "Developer", "myemail@email.com");
-            //mf.ActiveDocument.Signatures.Commit();
+            object pageBreak = WdBreakType.wdPageBreak;
+            Paragraph paragraph;
+            for (int i = 0; i < verseList.Count; i++)
+			{
+                // The number of text
+                paragraph = application.ActiveDocument.Content.Paragraphs.Add();
+                paragraph.Range.Text = (i + startTextIndex).ToString();
+                paragraph.set_Style(application.ActiveDocument.Styles["Heading 1"]);
+                paragraph.Range.InsertParagraphAfter();
+                // Verse
+                paragraph = application.ActiveDocument.Content.Paragraphs.Add();
+                paragraph.Range.Text = verseList[i].Text;
+                paragraph.Range.InsertParagraphAfter();
+                // Place
+                paragraph = application.ActiveDocument.Content.Paragraphs.Add();
+                paragraph.Range.Text = verseList[i].Place.FullLocation;
+                paragraph.set_Style(application.ActiveDocument.Styles["Heading 2"]);
+                paragraph.Range.InsertParagraphAfter();
+                // Page Break
+                if (i < verseList.Count - 1)
+                    paragraph.Range.InsertBreak(ref pageBreak);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(paragraph);
+
+                // Check for overlapping
+                BiblePlace currentPlace = verseList[i].Place;
+                var q = verseList.GetRange(0, i).Where(a => a.Place.IsOverlaping(currentPlace));
+                if (q.Any())
+                {
+                    Console.WriteLine("Place {0} is overlapping the following places: {1}\n",
+                        currentPlace.ToString(), string.Join(";", q.Select(a => a.Place)));
+                }
+            }
 
             try
             {
-                mf.ActiveDocument.SaveAs("d:\\test1.docx");
-                mf.ActiveDocument.Close();
-                mf.Quit();
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(mf);
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oPara1);
+                if (isNewFile)
+                    application.ActiveDocument.SaveAs(fileName);
+                else
+                    application.ActiveDocument.Save();
+                application.ActiveDocument.Close();
+                application.Quit();
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(application);
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
             }
             catch
             {
-                oPara1 = null;
-                mf = null;
+                paragraph = null;
+                application = null;
             }
         }
 
         static void Main(string[] args)
         {
-            List<string> texts = GetAllTexts().ToList();
+            List<BibleVerse> texts = GetAllTexts();
             CreateDoc(texts);
         }
     }
