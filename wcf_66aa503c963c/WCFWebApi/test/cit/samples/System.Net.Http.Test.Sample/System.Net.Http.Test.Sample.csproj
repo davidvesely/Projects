@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory),WebApi.msbuild))\tools\WebApi.test.settings.targets" />
+  <PropertyGroup>
+    <ProjectGuid>{F35707CF-BA95-4AD4-B67C-CB3277086E31}</ProjectGuid>
+    <RootNamespace>System.Net.Http.Test.Sample</RootNamespace>
+    <AssemblyName>System.Net.Http.Test.Sample</AssemblyName>
+    <OutputType>Library</OutputType>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName />
+    <SccLocalPath />
+    <SccAuxPath />
+    <SccProvider />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ProgressMessageHandler\ProgressMessageHandlerTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\samples\advanced\ProgressMessageHandler.Sample\ProgressMessageHandler\Web\SampleData.random">
+      <Link>Web\SampleData.random</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\samples\advanced\ProgressMessageHandler.Sample\ProgressMessageHandler.Sample.csproj">
+      <Project>{6E617020-6B2D-4EFA-AEE2-4386012772BA}</Project>
+      <Name>ProgressMessageHandler.Sample</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\common\Microsoft.TestCommon\Microsoft.TestCommon.csproj">
+      <Project>{FCCC4CB7-BAF7-4A57-9F89-E5766FE536C0}</Project>
+      <Name>Microsoft.TestCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(WebApiToolsPath)\WebApi.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

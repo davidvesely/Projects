@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>HTML5 Multiple File Service Sample Upload Data Form</title>
+</head>
+<body>
+    <h1>
+        HTML5 Multiple File Service Sample Upload Data Form</h1>
+        <p>
+            This sample WCF service reads the contents of an HTML5 multiple file upload form
+            and writes one or more body parts to a local file.</p>
+        <form action="http://localhost:8081/fileservice" enctype="multipart/form-data" method="POST">
+        What is your name?
+        <input name="submitter" size="40" type="text"><br>
+        What files are you uploading?
+        <input name="data" type=file multiple>
+        (please select one or more <b>SampleData.*</b>) files.<br>
+        <br>
+        <input type="submit" />
+        </form>
+</body>
+</html>
+

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory),WebApi.msbuild))\tools\WebApi.test.settings.targets" />
+  <PropertyGroup>
+    <ProjectGuid>{8BEDC116-FB65-4740-915B-54960E1860CC}</ProjectGuid>
+    <RootNamespace>Microsoft.Json.Test.Sample</RootNamespace>
+    <AssemblyName>Microsoft.Json.Test.Sample</AssemblyName>
+    <OutputType>Library</OutputType>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName />
+    <SccLocalPath />
+    <SccAuxPath />
+    <SccProvider />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="JsonValue\JsonValueTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\samples\basic\JsonValue.Sample\JsonValue.Sample.csproj">
+      <Project>{4143D104-62AF-4E3F-A3E5-FDDD660C77FC}</Project>
+      <Name>JsonValue.Sample</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\src\Microsoft.Json\Microsoft.Json.csproj">
+      <Project>{F0441BE9-BDC0-4629-BE5A-8765FFAA2481}</Project>
+      <Name>Microsoft.Json</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\src\Microsoft.Server.Common\Microsoft.Server.Common.csproj">
+      <Project>{8D4DB4F7-78AB-4FCA-A9C6-DE7569CF8F50}</Project>
+      <Name>Microsoft.Server.Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\common\Microsoft.TestCommon\Microsoft.TestCommon.csproj">
+      <Project>{FCCC4CB7-BAF7-4A57-9F89-E5766FE536C0}</Project>
+      <Name>Microsoft.TestCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(WebApiToolsPath)\WebApi.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

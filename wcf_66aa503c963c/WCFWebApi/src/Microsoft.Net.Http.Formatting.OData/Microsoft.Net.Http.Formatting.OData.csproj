@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory),WebApi.msbuild))\tools\WebApi.settings.targets" />
+  <PropertyGroup>
+    <ProjectGuid>{CF73AAA7-ACE9-4C91-AFA5-5EC1DF18FEEE}</ProjectGuid>
+    <RootNamespace>System.Net.Http.Formatting.OData</RootNamespace>
+    <AssemblyName>Microsoft.Net.Http.Formatting.OData</AssemblyName>
+    <OutputType>Library</OutputType>
+    <DocumentationFile>$(WebApiDocPath)\$(AssemblyName).XML</DocumentationFile>
+    <SccProjectName />
+    <SccLocalPath />
+    <SccAuxPath />
+    <SccProvider />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OData">
+      <HintPath>$(WebApiExternalPath)\OData\System.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="System\Net\Http\Formatting\ODataMediaTypeFormatter.cs" />
+    <Compile Include="System\Net\Http\Formatting\OData\DefaultODataSerializerProvider.cs" />
+    <Compile Include="System\Net\Http\Formatting\OData\IODataSerializer.cs" />
+    <Compile Include="System\Net\Http\Formatting\OData\ODataCollectionSerializer.cs" />
+    <Compile Include="System\Net\Http\Formatting\OData\ODataComplexTypeSerializer.cs" />
+    <Compile Include="System\Net\Http\Formatting\OData\ODataConstants.cs" />
+    <Compile Include="System\Net\Http\Formatting\OData\ODataEntityTypeSerializer.cs" />
+    <Compile Include="System\Net\Http\Formatting\OData\ODataEnumSerializer.cs" />
+    <Compile Include="System\Net\Http\Formatting\OData\ODataFeedSerializer.cs" />
+    <Compile Include="System\Net\Http\Formatting\OData\ODataGeneratorStatics.cs" />
+    <Compile Include="System\Net\Http\Formatting\OData\ODataGeneratorUtil.cs" />
+    <Compile Include="System\Net\Http\Formatting\OData\ODataPrimitiveSerializer.cs" />
+    <Compile Include="System\Net\Http\Formatting\OData\ODataResponseContext.cs" />
+    <Compile Include="System\Net\Http\Formatting\OData\ODataSerializerProvider.cs" />
+    <Compile Include="System\Net\Http\Formatting\OData\ODataSerializerWriteContext.cs" />
+    <Compile Include="System\Net\Http\Formatting\OData\ODataWriterGenerator.cs" />
+    <Compile Include="System\Net\Http\Formatting\OData\SerializerType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SR.resx">
+      <!-- <Generator>ResXFileCodeGenerator</Generator> -->
+      <StrictResXFileCodeGenerator>true</StrictResXFileCodeGenerator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>SR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.Json\Microsoft.Json.csproj">
+      <Project>{F0441BE9-BDC0-4629-BE5A-8765FFAA2481}</Project>
+      <Name>Microsoft.Json</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Net.Http.Formatting\Microsoft.Net.Http.Formatting.csproj">
+      <Project>{668E9021-CE84-49D9-98FB-DF125A9FCDB0}</Project>
+      <Name>Microsoft.Net.Http.Formatting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Net.Http\System.Net.Http.csproj">
+      <Project>{6D7A8E9E-1576-4E5D-AB2F-F3B540FD9AD1}</Project>
+      <Name>System.Net.Http</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Runtime.Serialization.Internal\Microsoft.Runtime.Serialization.Internal.csproj">
+      <Project>{A0D6F2BD-688E-46FA-945C-2BCFDF09AD53}</Project>
+      <Name>Microsoft.Runtime.Serialization.Internal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Server.Common\Microsoft.Server.Common.csproj">
+      <Project>{8D4DB4F7-78AB-4FCA-A9C6-DE7569CF8F50}</Project>
+      <Name>Microsoft.Server.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(WebApiToolsPath)\WebApi.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

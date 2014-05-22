@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory),WebApi.msbuild))\tools\WebApi.test.settings.targets" />
+  <PropertyGroup>
+    <ProjectGuid>{068196D4-2386-47EB-802C-13151531A50F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Microsoft.TestCommon.WCF.Http</RootNamespace>
+    <AssemblyName>Microsoft.TestCommon.WCF.Http</AssemblyName>
+    <SccProjectName />
+    <SccLocalPath />
+    <SccAuxPath />
+    <SccProvider />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Microsoft\TestCommon\WCF\Http\HttpAssert.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\HttpOperationAssert.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\HttpParameterAssert.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\HttpServiceHostAssert.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\MediaTypeAssert.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\MediaTypeHeaderValueComparer.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Mocks\MockAsyncCallback.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Mocks\MockAsyncResult.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Mocks\MockBindingContext.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Mocks\MockBufferManager.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Mocks\MockChannelListener.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Mocks\MockHttpContent.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Mocks\MockHttpErrorHandler.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Mocks\MockHttpInstanceProvider.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Mocks\MockHttpMessageFormatter.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Mocks\MockHttpMessageInspector.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Mocks\MockHttpOperationDescription.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Mocks\MockHttpOperationHandler.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Mocks\MockHttpOperationSelector.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Mocks\MockHttpTransportBindingElement.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Mocks\MockMediaTypeFormatter.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Mocks\MockObjectContent.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Mocks\MockOperationBehavior.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Mocks\MockReplyChannel.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Mocks\MockRequestContext.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Mocks\MockUnseekableStream.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Mocks\MockUriAndMethodOperationSelector.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Mocks\MockXmlDictionaryWriter.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\ObjectContentAssert.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\ParsedMediaTypeHeaderValue.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\ServiceHostAssert.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Types\DerivedFormUrlEncodedMediaTypeFormatter.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Types\DerivedJsonMediaTypeFormatter.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Types\DerivedJsonValueMediaTypeFormatter.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Types\DerivedXmlMediaTypeFormatter.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\Types\HttpTestData.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\UnitTestAsserters.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\UnitTestDataSets.cs" />
+    <Compile Include="Microsoft\TestCommon\WCF\Http\WebHttpServiceHostAssert.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Microsoft.ApplicationServer.Http\Microsoft.ApplicationServer.Http.csproj">
+      <Project>{CD92FACC-3083-4458-BE12-1700CF95F2B2}</Project>
+      <Name>Microsoft.ApplicationServer.Http</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\Microsoft.Json\Microsoft.Json.csproj">
+      <Project>{F0441BE9-BDC0-4629-BE5A-8765FFAA2481}</Project>
+      <Name>Microsoft.Json</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\Microsoft.Net.Http.Formatting\Microsoft.Net.Http.Formatting.csproj">
+      <Project>{668E9021-CE84-49D9-98FB-DF125A9FCDB0}</Project>
+      <Name>Microsoft.Net.Http.Formatting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\System.Net.Http\System.Net.Http.csproj">
+      <Project>{6D7A8E9E-1576-4E5D-AB2F-F3B540FD9AD1}</Project>
+      <Name>System.Net.Http</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\Microsoft.Runtime.Serialization.Internal\Microsoft.Runtime.Serialization.Internal.csproj">
+      <Project>{A0D6F2BD-688E-46FA-945C-2BCFDF09AD53}</Project>
+      <Name>Microsoft.Runtime.Serialization.Internal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\Microsoft.Server.Common\Microsoft.Server.Common.csproj">
+      <Project>{8D4DB4F7-78AB-4FCA-A9C6-DE7569CF8F50}</Project>
+      <Name>Microsoft.Server.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\Microsoft.ServiceModel.Internal\Microsoft.ServiceModel.Internal.csproj">
+      <Project>{4604DD49-7DCD-43E6-83F6-2C45BE7159A1}</Project>
+      <Name>Microsoft.ServiceModel.Internal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.TestCommon.WCF\Microsoft.TestCommon.WCF.csproj">
+      <Project>{FA0CA12A-4023-48D5-A545-38262AC432B7}</Project>
+      <Name>Microsoft.TestCommon.WCF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.TestCommon\Microsoft.TestCommon.csproj">
+      <Project>{FCCC4CB7-BAF7-4A57-9F89-E5766FE536C0}</Project>
+      <Name>Microsoft.TestCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(WebApiToolsPath)\WebApi.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

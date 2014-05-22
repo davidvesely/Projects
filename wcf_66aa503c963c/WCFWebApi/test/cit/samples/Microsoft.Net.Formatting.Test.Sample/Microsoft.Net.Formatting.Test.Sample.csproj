@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory),WebApi.msbuild))\tools\WebApi.test.settings.targets" />
+  <PropertyGroup>
+    <ProjectGuid>{3574A948-5726-4D62-8976-55EC276EFC5C}</ProjectGuid>
+    <RootNamespace>Microsoft.Net.Formatting.Test.Sample</RootNamespace>
+    <AssemblyName>Microsoft.Net.Formatting.Test.Sample</AssemblyName>
+    <OutputType>Library</OutputType>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName />
+    <SccLocalPath />
+    <SccAuxPath />
+    <SccProvider />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
+  <ItemGroup>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\..\..\..\samples\advanced\MimeMultipart.Sample\External\Ionic.Zip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HttpMessageContent\HttpMessageContentTests.cs" />
+    <Compile Include="MimeMultipart\MimeMultipartTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\samples\advanced\MimeMultipart.Sample\MimeMultipart.Sample.csproj">
+      <Project>{EB6959E8-E602-4BE9-B3B1-2C69B456ED65}</Project>
+      <Name>MimeMultipart.Sample</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\samples\basic\HttpMessageContent.Sample\HttpMessageContent.Sample.csproj">
+      <Project>{59D3F708-E140-4A3A-8005-4F1DABB904AC}</Project>
+      <Name>HttpMessageContent.Sample</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\src\Microsoft.Net.Http.Formatting\Microsoft.Net.Http.Formatting.csproj">
+      <Project>{668E9021-CE84-49D9-98FB-DF125A9FCDB0}</Project>
+      <Name>Microsoft.Net.Http.Formatting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\src\System.Net.Http\System.Net.Http.csproj">
+      <Project>{6D7A8E9E-1576-4E5D-AB2F-F3B540FD9AD1}</Project>
+      <Name>System.Net.Http</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\src\Microsoft.Server.Common\Microsoft.Server.Common.csproj">
+      <Project>{8D4DB4F7-78AB-4FCA-A9C6-DE7569CF8F50}</Project>
+      <Name>Microsoft.Server.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\common\Microsoft.TestCommon\Microsoft.TestCommon.csproj">
+      <Project>{FCCC4CB7-BAF7-4A57-9F89-E5766FE536C0}</Project>
+      <Name>Microsoft.TestCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(WebApiToolsPath)\WebApi.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

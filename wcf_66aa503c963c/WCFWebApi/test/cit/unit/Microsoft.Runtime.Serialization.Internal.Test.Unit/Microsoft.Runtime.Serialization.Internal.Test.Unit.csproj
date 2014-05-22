@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory),WebApi.msbuild))\tools\WebApi.test.settings.targets" />
+  <PropertyGroup>
+    <ProjectGuid>{42280B50-3A43-4A38-B51B-BF9CBE3E97A3}</ProjectGuid>
+    <RootNamespace>Microsoft.Runtime.Serialization.Internal.Test.Unit</RootNamespace>
+    <AssemblyName>Microsoft.Runtime.Serialization.Internal.Test.Unit</AssemblyName>
+    <OutputType>Library</OutputType>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName />
+    <SccLocalPath />
+    <SccAuxPath />
+    <SccProvider />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataContracts\ConflictingMembersDataContractClass.cs" />
+    <Compile Include="DataContracts\DerivedDataContractClass.cs" />
+    <Compile Include="DataContracts\DerivedHasKnownDataContractClass.cs" />
+    <Compile Include="DataContracts\EmitDefaultValueDataContractClass.cs" />
+    <Compile Include="DataContracts\ExtensionDataContractClass.cs" />
+    <Compile Include="DataContracts\HasKnownDataContractClass.cs" />
+    <Compile Include="DataContracts\IsReferenceDataContractClass.cs" />
+    <Compile Include="DataContracts\NameOnlyConflictingMembersDataContractClass.cs" />
+    <Compile Include="DataContracts\NoSetterDataContractClass.cs" />
+    <Compile Include="DataContracts\OrderedDataContractClass.cs" />
+    <Compile Include="DataContracts\PocoDataContractClass.cs" />
+    <Compile Include="DataContracts\ReadOnlyCollectionDataContractClass.cs" />
+    <Compile Include="DataContracts\SimpleDataContractClass.cs" />
+    <Compile Include="DataContracts\SimpleMembersDataContractClass.cs" />
+    <Compile Include="Microsoft\Runtime\Serialization\ClassDataContractTests.cs" />
+    <Compile Include="Microsoft\Runtime\Serialization\DataContractTests.cs" />
+    <Compile Include="Microsoft\Runtime\Serialization\DataMemberTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\src\Microsoft.Server.Common\Microsoft.Server.Common.csproj">
+      <Project>{8D4DB4F7-78AB-4FCA-A9C6-DE7569CF8F50}</Project>
+      <Name>Microsoft.Server.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\common\Microsoft.TestCommon.WCF\Microsoft.TestCommon.WCF.csproj">
+      <Project>{FA0CA12A-4023-48D5-A545-38262AC432B7}</Project>
+      <Name>Microsoft.TestCommon.WCF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\common\Microsoft.TestCommon\Microsoft.TestCommon.csproj">
+      <Project>{FCCC4CB7-BAF7-4A57-9F89-E5766FE536C0}</Project>
+      <Name>Microsoft.TestCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\src\Microsoft.Runtime.Serialization.Internal\Microsoft.Runtime.Serialization.Internal.csproj">
+      <Project>{A0D6F2BD-688E-46FA-945C-2BCFDF09AD53}</Project>
+      <Name>Microsoft.Runtime.Serialization.Internal</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(WebApiToolsPath)\WebApi.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -9,67 +9,13 @@ using System.Threading.Tasks;
 using HtmlAgilityPack;
 using Microsoft.Office.Interop.Word;
 using WordApplication = Microsoft.Office.Interop.Word.Application;
+using BibleVerses.Models;
 
 namespace BibleVerses
 {
-    public class BiblePlace
-    {
-        public string Book
-        {
-            get
-            {
-                int index = Array.IndexOf(VerseReader.BooksBG, this.BookBG);
-                if (index >= 0)
-                    return VerseReader.Books[index];
-                else
-                    throw new Exception("Book is not found: " + BookBG);
-            }
-        }
-        public string BookBG { get; set; }
-        public int Chapter { get; set; }
-        public int Start { get; set; }
-        public int End { get; set; }
-        public string FullLocation { get; set; }
-
-        public override string ToString()
-        {
-            return string.Format("Book {0}, Chapter {1}, Verses from {2} to {3}",
-                Book, Chapter, Start, End);
-        }
-
-        public bool IsOverlaping(BiblePlace otherPlace)
-        {
-            if ((this.BookBG == otherPlace.BookBG) && (this.Chapter == otherPlace.Chapter))
-            {
-                int a1, a2, b1, b2;
-                a1 = this.Start;
-                a2 = this.End;
-                b1 = otherPlace.Start;
-                b2 = otherPlace.End;
-                if (IsBetween(a1, b1, b2) || IsBetween(a2, b1, b2) ||
-                    IsBetween(b1, a1, a2) || IsBetween(b2, a1, a2))
-                {
-                    return true;
-                }
-            }
-            
-            return false;
-        }
-
-        private bool IsBetween(int number, int start, int end)
-        {
-            return (start <= number) && (number <= end);
-        }
-    }
-
-    public class BibleVerse
-    {
-        public string Text { get; set; }
-        public BiblePlace Place { get; set; }
-    }
-
     public class VerseReader
     {
+        private static StreamWriter fileOutput;
         private static int startTextIndex = 1;
         private static readonly bool ShouldAppend = false;
         // 0 - Book; 1 - Chapter; 2 - start verse; 3 - end verse
@@ -77,7 +23,7 @@ namespace BibleVerses
         //private const string READER_URL = @"http://bible.netbg.com/bible/paralel/bible.php?b={0}&c={1}&r=&v1={2}&v2={3}&vt=1&c7=1&st=&sa=1&rt=2&l=1&cm=2";
         // Bible community
         private const string READER_URL =
-            @"http://bible.netbg.com/bible/paralel/bible.php?b={0}&c={1}&r=&v1={2}&v2={3}&vt=1&c6=1&st=&sa=1&rt=2&l=1&cm=2";
+            @"http://bible.netbg.com/bible/paralel/bible.php?b={0}&c={1}&r=&v1={2}&v2={3}&vt=1&c5=1&st=&sa=1&rt=2&l=1&cm=2";
 
         public static string[] Books = new string[] { "genesis", "exodus", "leviticus", "numbers", "deuteronomy", "joshua", "judges",
             "ruth", "1samuel", "2samuel", "1kings", "2kings", "1chronicles", "2chronicles", "ezra", "nehemiah", "esther", "job",
@@ -90,14 +36,15 @@ namespace BibleVerses
         public static string[] BooksBG = new string[] { "Битие", "Изход", "Левит", "Числа", "Второзаконие", "Исус Навиев", "Съдии",
             "Рут", "1 Царе", "2 Царе", "3 Царе", "4 Царе", "1 Летописи", "2 Летописи", "Ездра", "Неемия", "Естир", "Йов",
             "Псалми", "Притчи", "Еклесиаст", "Песен на песните", "Исая", "Еремия", "Плач Еремиев", "Езекил", "Данаил", "Осия",
-            "Йоил", "Амос", "Авдий", "Йона", "Михей", "Наум", "Авакум", "Софоний", "Агей", "Захария", "Малахия", "Матей", "Марко",
-            "Лука", "Йоан", "Деяния", "Яков", "1 Петрово", "2 Петрово", "1 Йоаново", "2 Йоаново", "3 Йоаново", "Юда", "Римляни",
+            "Йоил", "Амос", "Авдий", "Йона", "Михей", "Наум", "Авакум", "Софоний", "Агей", "Захария", "Малахия", "Матей", "Марк",
+            "Лука", "Йоан", "Деяния", "Яков", "1 Петрово", "2 Петрово", "1 Йоан", "2 Йоан", "3 Йоан", "Юда", "Римляни",
             "1 Коринтяни", "2 Коринтяни", "Галатяни", "Ефесяни", "Филипяни", "Колосяни", "1 Солунци", "2 Солунци", "1 Тимотей",
             "2 Тимотей", "Тит", "Филимон", "Евреи", "Откровение" };
 
         private static string RetrieveRawText(BiblePlace place)
         {
             string url = string.Format(READER_URL, place.Book, place.Chapter, place.Start, place.End);
+            //Console.WriteLine(url);
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.Default);
@@ -130,6 +77,7 @@ namespace BibleVerses
         private static List<BibleVerse> GetAllTexts()
         {
             List<BibleVerse> texts = new List<BibleVerse>();
+            using (MyContext db = new MyContext())
             using (StreamReader sr = new StreamReader("d:\\texts.txt", Encoding.Default))
             {
                 string line;
@@ -140,17 +88,46 @@ namespace BibleVerses
 
                     try
                     {
+                        string cleanText = null;
                         BiblePlace place = GetBiblePlace(line);
-                        string rawText = RetrieveRawText(place);
-                        string cleanText = ExtractCleanText(rawText);
-                        texts.Add(new BibleVerse() { Place = place, Text = cleanText });
-                        Console.WriteLine("Place {0} is OK", line);
-                        Thread.Sleep(500);
+                        var placeInDb = (from t in db.BiblePlaces
+                                         where t.BookBG == place.BookBG
+                                         && t.Chapter == place.Chapter
+                                         && t.End == place.End
+                                         && t.FullLocation == place.FullLocation
+                                         && t.Start == place.Start
+                                         select t).SingleOrDefault();
+                        if (placeInDb != null)
+                        {
+                            cleanText = placeInDb.BibleVerses.Single().Text;
+                        }
+                        else
+                        {
+                            string rawText = RetrieveRawText(place);
+                            cleanText = ExtractCleanText(rawText);
+
+                            // Add a record
+                            db.BiblePlaces.Add(place);
+                            db.SaveChanges();
+                            BibleVerse verse = new BibleVerse()
+                            {
+                                BiblePlace = place,
+                                Text = cleanText
+                            };
+                            db.BibleVerses.Add(verse);
+                            db.SaveChanges();
+                            Thread.Sleep(500);
+                        }
+                        texts.Add(new BibleVerse() { BiblePlace = place, Text = cleanText });
+                        string output = string.Format("Place {0} is OK", line);
+                        Console.WriteLine(output);
+                        fileOutput.WriteLine(output);
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine("Problem with row: {0}", line);
-                        Console.WriteLine("      {0}", ex.Message);
+                        string output = "Problem with row: " + line + "\n      " + ex.Message;
+                        Console.WriteLine(output);
+                        fileOutput.WriteLine(output);
                     }
                 }
             }
@@ -234,7 +211,7 @@ namespace BibleVerses
                 paragraph.Range.InsertParagraphAfter();
                 // Place
                 paragraph = application.ActiveDocument.Content.Paragraphs.Add();
-                paragraph.Range.Text = verseList[i].Place.FullLocation;
+                paragraph.Range.Text = verseList[i].BiblePlace.FullLocation;
                 paragraph.set_Style(application.ActiveDocument.Styles["Heading 2"]);
                 paragraph.Range.InsertParagraphAfter();
                 // Page Break
@@ -243,12 +220,14 @@ namespace BibleVerses
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(paragraph);
 
                 // Check for overlapping
-                BiblePlace currentPlace = verseList[i].Place;
-                var q = verseList.GetRange(0, i).Where(a => a.Place.IsOverlaping(currentPlace));
+                BiblePlace currentPlace = verseList[i].BiblePlace;
+                var q = verseList.GetRange(0, i).Where(a => a.BiblePlace.IsOverlaping(currentPlace));
                 if (q.Any())
                 {
-                    Console.WriteLine("Place {0} is overlapping the following places: {1}\n",
-                        currentPlace.ToString(), string.Join(";", q.Select(a => a.Place)));
+                    string output = string.Format("Row {0}: Place {1} is overlapping the following places: {2}\n",
+                        i + 1, currentPlace.ToString(), string.Join("; ", q.Select(a => a.BiblePlace)));
+                    Console.WriteLine(output);
+                    fileOutput.WriteLine(output);
                 }
             }
 
@@ -273,8 +252,11 @@ namespace BibleVerses
 
         static void Main(string[] args)
         {
-            List<BibleVerse> texts = GetAllTexts();
-            CreateDoc(texts);
+            using (fileOutput = new StreamWriter("output.txt", false, Encoding.UTF8))
+            {
+                List<BibleVerse> texts = GetAllTexts();
+                CreateDoc(texts);
+            }
         }
     }
 }

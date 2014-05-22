@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <PropertyGroup>
+        <!-- Define some basic reference paths -->
+        <WebApiRootPath>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\'))</WebApiRootPath>
+        <WebApiSrcPath>$(WebApiRootPath)src\</WebApiSrcPath>
+        <WebApiTestPath>$(WebApiRootPath)test\</WebApiTestPath>
+        <WebApiExternalPath>$(WebApiRootPath)External\</WebApiExternalPath>
+        <WebApiToolsPath>$(MSBuildThisFileDirectory)</WebApiToolsPath>
+
+        <!-- When not empty, this property triggers tracing of custom properties prior to build -->
+        <WebApiBuildTrace>true</WebApiBuildTrace>
+
+        <!-- Define default configuration (so building from command line is consistent) -->
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+
+        <!-- Define basic output paths -->
+        <OutputPath Condition=" '$(OutputPath)' == '' ">$(WebApiRootPath)bin\$(Configuration)\</OutputPath>
+        <IntermediateOutputPath>$(WebApiRootPath)obj\$(Configuration)\$(MSBuildProjectName)</IntermediateOutputPath>
+        <WebApiDocPath Condition=" '$(WebApiDocPath)' == '' ">$(OutputPath)</WebApiDocPath>
+
+        <!-- We treat StyleCop errors as build errors by default -->
+        <StyleCopTreatErrorsAsWarnings Condition="'$(StyleCopTreatErrorsAsWarnings)' == ''">false</StyleCopTreatErrorsAsWarnings>
+        <StyleCopEnabled Condition="'$(StyleCopEnabled)' == ''">true</StyleCopEnabled>
+
+        <SccProjectName>SAK</SccProjectName>
+        <SccLocalPath>SAK</SccLocalPath>
+        <SccAuxPath>SAK</SccAuxPath>
+        <SccProvider>SAK</SccProvider>
+
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+        <!-- $(CodeAnalysis) comes from the environment and provides the default for $(RunCodeAnalysis) -->
+        <RunCodeAnalysis>$(CodeAnalysis)</RunCodeAnalysis>
+        <CodeAnalysisRuleSet Condition="'$(CodeAnalysisRuleSet)' == ''">MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+        <!-- TODO <CodeAnalysisRuleSet Condition="'$(CodeAnalysisRuleSet)' == ''">AllRules.ruleset</CodeAnalysisRuleSet> -->
+
+        <!-- $(StyleCop) comes from the environment and provides the default for $(StyleCopEnabled) -->
+        <StyleCopEnabled>$(StyleCop)</StyleCopEnabled>
+        <StyleCopEnabled Condition="'$(StyleCopEnabled)' == ''">true</StyleCopEnabled>
+
+        <!-- We treat StyleCop errors as build errors by default -->
+        <StyleCopTreatErrorsAsWarnings Condition="'$(StyleCopTreatErrorsAsWarnings)' == ''">false</StyleCopTreatErrorsAsWarnings>
+
+        <!-- Signing 
+        <SignAssembly>true</SignAssembly>
+        <DelaySign Condition="'$(DELAYSIGN)' == ''">true</DelaySign>
+        <AssemblyOriginatorKeyFile Condition="'$(AssemblyOriginatorKeyFile)' == ''">$(WebApiSrcPath)MSSharedLibSN1024.snk</AssemblyOriginatorKeyFile>-->
+
+        <!-- Variables for output redirection (localization, signing, etc)-->
+        <Language Condition=" '$(Language)' == '' ">ENU</Language>
+        <LocalizedPath Condition=" '$(LocalizedPath)' == '' "></LocalizedPath>
+
+        <!-- Localization -->
+        <SrcLocale>$(Language)</SrcLocale>
+        <LSBuildLang>$(Language)</LSBuildLang>
+        <LocToolsPath>$(WebApiToolsPath)loc</LocToolsPath>
+        <LocPath>$(WebApiRootPath)localize</LocPath>
+        <LciPath>$(LocPath)\comments</LciPath>
+        <LSBuild>$(LocToolsPath)\lsbuild.exe</LSBuild>
+        <AllLanguages>CHS;CHT;CSY;DEU;ESN;FRA;ITA;JPN;KOR;PLK;PTB;RUS;TRK</AllLanguages>
+        <Translation>Full</Translation>
+
+        <!-- WiX paths -->
+        <WixToolPath>$(WebApiToolsPath)wix36</WixToolPath>
+        <WixTargetsPath>$(WixToolPath)\Wix.targets</WixTargetsPath>
+        <WixTasksPath>$(WixToolPath)\wixtasks.dll</WixTasksPath>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DebugSymbols>true</DebugSymbols>
+      <DebugType>full</DebugType>
+      <Optimize>false</Optimize>
+      <DefineConstants>DEBUG;TRACE</DefineConstants>
+      <ErrorReport>prompt</ErrorReport>
+      <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DebugType>pdbonly</DebugType>
+      <Optimize>true</Optimize>
+      <DefineConstants>TRACE</DefineConstants>
+      <ErrorReport>prompt</ErrorReport>
+      <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+
+    <!-- Localization properties based on languages -->
+    <PropertyGroup Condition="'$(Language)' == 'CHS'">
+        <DstLocale>zh-Hans</DstLocale>
+        <LCID>2052</LCID>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Language)' == 'CHT'">
+        <DstLocale>zh-Hant</DstLocale>
+        <LCID>1028</LCID>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Language)' == 'CSY'">
+        <DstLocale>cs</DstLocale>
+        <LCID>1029</LCID>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Language)' == 'DEU'">
+        <DstLocale>de</DstLocale>
+        <LCID>1031</LCID>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Language)' == 'ENU'">
+        <DstLocale>en</DstLocale>
+        <LCID>1033</LCID>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Language)' == 'ESN'">
+        <DstLocale>es</DstLocale>
+        <LCID>3082</LCID>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Language)' == 'FRA'">
+        <DstLocale>fr</DstLocale>
+        <LCID>1036</LCID>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Language)' == 'ITA'">
+        <DstLocale>it</DstLocale>
+        <LCID>1040</LCID>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Language)' == 'JPN'">
+        <DstLocale>ja</DstLocale>
+        <LCID>1041</LCID>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Language)' == 'KOR'">
+        <DstLocale>ko</DstLocale>
+        <LCID>1042</LCID>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Language)' == 'PLK'">
+        <DstLocale>pl</DstLocale>
+        <LCID>1045</LCID>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Language)' == 'PTB'">
+        <DstLocale>pt-br</DstLocale>
+        <LCID>1046</LCID>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Language)' == 'RUS'">
+        <DstLocale>ru</DstLocale>
+        <LCID>1049</LCID>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Language)' == 'TRK'">
+        <DstLocale>tr</DstLocale>
+        <LCID>1055</LCID>
+    </PropertyGroup>    
+    <PropertyGroup Condition="'$(Language)' == 'PLOC'">
+        <LSBuildLang>JPN</LSBuildLang>
+        <SrcLocale>JPN</SrcLocale>
+        <DstLocale>ja</DstLocale>
+        <LCID>1041</LCID>
+        <Translation>Pseudo</Translation>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <!-- LCL path depends on the SrcLocale which is determined by $(Language) -->
+        <LclPath>$(LocPath)\$(SrcLocale)</LclPath>
+    </PropertyGroup>
+
+    <!-- Mark all References and ProjectReferences as CopyLocal=false so that the build avoids copying those files around needlessly -->
+    <ItemDefinitionGroup>
+        <ProjectReference>
+            <Private>False</Private>
+        </ProjectReference>
+        <Reference>
+            <Private>False</Private>
+        </Reference>
+    </ItemDefinitionGroup>
+
+</Project>

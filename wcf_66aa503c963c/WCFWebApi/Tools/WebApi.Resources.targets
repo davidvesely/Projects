@@ -1,0 +1,128 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- 
+      WebApi.Resources.targets
+      This file contains common msbuild targets required to generate resources (resx) files.
+  -->
+
+  <!--
+      The property MSBuildAllProjects is set to include this file.
+      This causes a complete rebuild if this file was changed.
+  -->  
+  <PropertyGroup>                 
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>        
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <GenerateStrictResXFileCodeGeneratorNamespaceDependsOn></GenerateStrictResXFileCodeGeneratorNamespaceDependsOn>
+
+    <CreateManifestResourceNamesDependsOn>
+      GenerateStrictResXFileCodeGeneratorNamespace;
+      $(CreateManifestResourceNamesDependsOn)
+    </CreateManifestResourceNamesDependsOn>
+  </PropertyGroup>
+
+  <Target
+    Name="GenerateStrictResXFileCodeGeneratorNamespace"
+    Condition="'@EmbeddedResource' != ''"
+    DependsOnTargets="$(GenerateStrictResXFileCodeGeneratorNamespaceDependsOn)">
+
+    <ItemGroup>
+      <EmbeddedResource Condition="'%(EmbeddedResource.StrictResXFileCodeGenerator)' == 'true' And '%(EmbeddedResource.CustomToolNamespace)' != ''">
+        <StrictResXFileCodeGeneratorNamespace>%(EmbeddedResource.CustomToolNamespace)</StrictResXFileCodeGeneratorNamespace>
+      </EmbeddedResource>
+      <EmbeddedResource Condition="'%(EmbeddedResource.StrictResXFileCodeGenerator)' == 'true' And '%(EmbeddedResource.CustomToolNamespace)' == '' And '$(RootNamespace)' != ''">
+        <StrictResXFileCodeGeneratorNamespace>$(RootNamespace)</StrictResXFileCodeGeneratorNamespace>
+      </EmbeddedResource>
+      <EmbeddedResource Condition="'%(EmbeddedResource.StrictResXFileCodeGenerator)' == 'true' And '%(EmbeddedResource.CustomToolNamespace)' == '' And '$(RootNamespace)' == ''">
+        <StrictResXFileCodeGeneratorNamespace>$(AssemblyName)</StrictResXFileCodeGeneratorNamespace>
+      </EmbeddedResource>
+
+      <EmbeddedResource Condition="'%(EmbeddedResource.StrictResXFileCodeGenerator)' == 'true'">
+        <ManifestResourceName>%(EmbeddedResource.StrictResXFileCodeGeneratorNamespace).%(EmbeddedResource.Filename)</ManifestResourceName>
+      </EmbeddedResource>
+    </ItemGroup>
+
+  </Target>
+
+  
+  <PropertyGroup>
+    <RunStrictResXFileCodeGeneratorDependsOn>
+      CreateManifestResourceNames;
+      $(RunStrictResXFileCodeGeneratorDependsOn)
+    </RunStrictResXFileCodeGeneratorDependsOn>
+
+    <!-- Overwrite this property after importing the CSharp targets to be able to hook up the ResX processing tasks 
+    <CoreCompileDependsOn>
+      RunStrictResXFileCodeGenerator;
+      $(CoreCompileDependsOn)
+    </CoreCompileDependsOn -->
+  </PropertyGroup>
+
+  <Target
+    Name="RunStrictResXFileCodeGenerator"
+    Condition="'@(EmbeddedResource)' != ''"
+    Inputs="@(EmbeddedResource)"
+    Outputs="@(EmbeddedResource -> '%(RelativeDir)%(Filename).Designer.cs')"
+    DependsOnTargets="$(RunStrictResXFileCodeGeneratorDependsOn)">
+
+    <Message
+      Condition="'%(EmbeddedResource.StrictResXFileCodeGenerator)' == 'true'"
+      Text="Generating '%(EmbeddedResource.RelativeDir)%(EmbeddedResource.Filename).Designer.cs' for '%(EmbeddedResource.ManifestResourceName)'. Generated namespace is '%(EmbeddedResource.StrictResXFileCodeGeneratorNamespace)'" />
+
+    <Exec
+      Condition="'%(EmbeddedResource.StrictResXFileCodeGenerator)' == 'true'"
+      Command="&quot;$(WebApiToolsPath)\StrictResXFileCodeGenerator.exe&quot; %(EmbeddedResource.StrictResXFileCodeGeneratorNamespace) &quot;%(EmbeddedResource.FullPath)&quot;" />
+     
+    <Error
+      Condition="!Exists('%(RelativeDir)%(Filename).Designer.cs') And '%(EmbeddedResource.StrictResXFileCodeGenerator)' == 'true'"
+      Text="Failed to generate %(EmbeddedResource.RelativeDir)%(EmbeddedResource.Filename).Designer.cs" />
+  </Target>
+
+  <PropertyGroup Condition="'$(FriendAssemblyName)' != ''">
+    <AssemblyName>Microsoft.ApplicationServer.Friend</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(EnlistmentRoot)\private\testkey.snk</AssemblyOriginatorKeyFile>
+    <FriendAssemblyOutputPath Condition="'$(FriendAssemblyOutputPath)' == ''">$(OutputPath)</FriendAssemblyOutputPath>
+    <ShouldBuildBinplaceMainAssembly>false</ShouldBuildBinplaceMainAssembly>
+    <OutputPath>$(FriendAssemblyOutputPath)\$(FriendAssemblyName)\</OutputPath>
+    <OutDir>$(OutputPath)</OutDir>
+
+	<!-- 
+    <BuildDependsOn>
+      $(BuildDependsOn);
+      CopyFriendDataFiles;
+    </BuildDependsOn> -->
+  </PropertyGroup>
+
+  <!--
+      The following defines common logic on using Friend assembly logic for CITs.
+  -->
+  <Target Name="CopyFriendDataFiles"
+    Condition="'$(FriendAssemblyName)' != ''">
+
+    <ItemGroup>
+      <_AllFriendOutFiles Remove="@(_AllFriendOutFiles)" />
+      <_FriendDataFiles Remove="@(_FriendDataFiles)" />
+      <_FriendAssemblyFiles Remove="@(_FriendAssemblyFiles)" />
+
+      <_AllFriendOutFiles Include="$(OutputPath)**\*.*" />
+      <_FriendDataFiles Condition="'%(_AllFriendOutFiles.Filename)' != '$(AssemblyName)'" Include="@(_AllFriendOutFiles)" />
+      <_FriendAssemblyFiles Condition="'%(_AllFriendOutFiles.Filename)' == '$(AssemblyName)'" Include="@(_AllFriendOutFiles)" />
+    </ItemGroup>
+
+    <Copy SourceFiles="@(_FriendDataFiles)"
+          DestinationFolder="$(FriendAssemblyOutputPath)"
+          SkipUnchangedFiles="true"
+          Retries="10"
+          RetryDelayMilliseconds="200"
+          OverwriteReadOnlyFiles="true" />
+
+    <Copy SourceFiles="@(_FriendAssemblyFiles)"
+          DestinationFiles="@(_FriendAssemblyFiles->'$(FriendAssemblyOutputPath)\$(FriendAssemblyName)%(Extension)')"
+          SkipUnchangedFiles="true"
+          Retries="10"
+          RetryDelayMilliseconds="200"
+          OverwriteReadOnlyFiles="true" />
+  </Target>
+
+</Project>

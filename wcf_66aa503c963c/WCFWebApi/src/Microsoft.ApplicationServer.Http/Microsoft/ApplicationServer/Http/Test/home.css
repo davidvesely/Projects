@@ -1,0 +1,374 @@
+html {
+    margin: 0;
+    padding: 0;
+    height:100%;
+}
+
+body{
+    font-size: 12px;
+    font-family: Segoe UI Light;
+    width:100%;
+}
+
+input{
+    
+    font-size: 12px;
+    font-family: Segoe UI Light;
+}
+
+a{
+     text-decoration:none;
+}
+select{
+    font-size:12px;
+    font-family: Segoe UI Light;
+}
+
+textarea{
+    font-size: 14px;
+    font-family: Segoe UI Light;
+    overflow:auto;
+}
+
+#requestHeader{
+    width:675px;
+}
+#responseBody{
+    width:647px;
+    height:284px;
+}
+
+#responseHeader{
+    width:647px;
+}
+
+#uri{
+    width:526px;
+}
+
+#requestBodyXml{
+    width:675px;
+}
+
+#requestBodyJson{
+    width:675px;
+}
+
+#requestBodyRaw{
+    width:675px;
+}
+
+#requestBodyTabs{
+    width:660px;
+    float: left;
+    margin-left:-2px;
+}
+
+#requestBodyTabs a{
+    color:#1c21df;
+}
+
+.myButton {
+    background-color:#3299FF;
+    display:inline-block;
+    color:#ffffff;
+    font-family:arial;
+    font-size:14px;
+    font-weight:bold;
+    padding:3px 24px;
+    text-decoration:none;
+}.myButton:hover {
+    background-color:#4197ee;
+}.myButton:active {
+    position:relative;
+    top:1px;
+}
+
+#container{
+    width:1024px;
+    margin-left:auto;
+    position:relative;
+    margin-right:auto;
+    padding:0px;
+    text-align:left;
+    overflow:hidden;
+    display:none;
+}
+
+#header{
+    height: 30px;
+    width: auto;
+    background-color: #FFFFFF;
+    margin-bottom:5px;
+}
+
+#headerTitle{
+    font-size:30px;
+    color: #3299FF;
+    margin-left:12px;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+#left{
+    float: left;
+    width:320px;
+    height:918px;
+    border:1px solid #3299FF;
+}
+
+#right{
+    float:right;
+    width:700px;
+    height:918px;
+    background-color: #f1f1f1;
+    border-left:0.5px solid white;
+}
+
+#methodAndUri{
+    width:690px;
+    overflow-x:hidden;
+    white-space:nowrap;
+    vertical-align:bottom;
+}
+
+#leftBackground{
+    background-color:#3299FF;
+    height:27px;
+    vertical-align: baseline;
+}
+
+#titleBackground{
+    background-color:#F1F1F1;
+    height:20px;
+    vertical-align: baseline;
+}
+#resources{
+    height: 410px;
+    overflow: auto;
+    width:318px;
+    white-space:nowrap;
+}
+
+#resourceframe{
+    overflow:auto;
+    font-size:14px;
+    font-family: Segoe UI Light;
+}
+
+#responseframe{
+    background-color:#F1F1F1;
+    padding:8px;
+    padding-top:0px;
+    width:682px;    
+    clear:both;
+    padding-left:2px;
+}
+#requestframe{
+    background-color:#F1F1F1;
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left:3px;
+}
+
+#requestHeaderDiv{
+    width:700px;
+    white-space:nowrap;
+}
+
+.resourceTreeNode{
+    font-size:14px;
+}
+
+#invokeButton{
+    float:left;
+    height:20px;
+}
+
+#requesttime{
+    padding-left:5px;
+}
+
+#httpVersion{
+    margin-left:1px;
+    margin-right:1px;
+}
+#statusDiv{
+    float:left;
+    height:24px;
+    width:680px;
+    padding-bottom:2px;
+    padding-top:5px;
+    padding-left:4px;
+}
+#resourceTree a {
+    color:#1C21DF;
+    text-decoration:none;
+}
+
+#resourceTree a:hover {
+    color:#060;
+    text-decoration:underline;
+    cursor:pointer;
+}
+
+#clearHistory{
+    float:right;
+    margin-right:5px;
+    font-size:14px;
+    color:White;
+    vertical-align:baseline;
+    margin-top:4px;
+}
+
+#resourceTree a:active {
+    color:#1C21DF;
+}
+
+#resourceTree {
+    color:black;
+    height: 410px;
+    overflow: auto;
+    width:318px;
+}
+
+.resourceSelected{
+    background-color:#F1F1F1;
+}
+
+#history{
+    margin: 0px auto;
+    float: left;
+    width:318px;
+    overflow:auto;
+    height:450px;
+}
+.historyIndex{
+    width:30px;
+    color:black;
+    text-align:right;
+    display:inline-block;
+}
+.historyDuration{
+    width: 65px;
+    color:black;
+    text-align:center;
+    display:inline-block;
+}
+
+.requestStatusOK{
+    color: #060;
+}
+
+.requestStatusError{
+    color: #FF0000;
+}
+
+.historyStatus{
+    width: 30px;
+    text-align:center;
+    display:inline-block;
+}
+
+.historyHttpMethod{
+    color:black;
+    width: 60px;
+    text-align:center;
+    display:inline-block;
+}
+
+#status{
+    padding-left:10px;
+}
+
+#responseframe textarea{
+    background-color:#F1F1F1;
+    border: 0px;
+}
+
+.validationIndicator{
+    visibility:hidden;
+    vertical-align:center;
+}
+
+.historyRecord{
+    white-space:nowrap;
+    text-decoration:none;
+    line-height:1.6em;
+    color:#1C21DF;
+    display:block;
+}
+
+.historyRecord:hover {
+    background:#F1F1F1;
+    cursor:pointer;
+}
+
+#responseTime{
+    margin-left: 10px;
+}
+
+#responseBodyDiv{
+    padding-top:8px;
+    padding-bottom:8px;
+}
+
+#leftTitle{
+    font-size:18px;
+    padding-left:3px;
+    color:White;
+}
+
+#rightTitle{
+    font-size:18px;
+    padding-left:3px;
+    color:black;
+}
+
+#historyTitle{
+    font-size:18px;
+    padding-left:3px;
+    float:left;
+    color:White;
+}
+
+#subTitle{
+    font-size:14px;
+}
+
+.HeaderDiv{
+    vertical-align:bottom;
+    margin-top:8px;
+    margin-left:3px;
+}
+
+#formatButton{
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size:12px;
+    
+}
+#sampleButton{
+    font-size:12px;
+}
+
+#responseArea{
+    padding-left:25px;
+    font-size:12px;    
+}
+
+.notApplicableItem{
+    color:Silver;
+}
+
+.unclickableLink{
+    color:#666666;
+}
+
+.clickableLink{
+    color:#1C21DF;
+}
+
+#sampleButton{
+    display:none;
+}

@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory),WebApi.msbuild))\tools\WebApi.test.settings.targets" />
+  <PropertyGroup>
+    <ProjectGuid>{7AF77741-9158-4D5F-8782-8F21FADF025F}</ProjectGuid>
+    <RootNamespace>System.Net.Http</RootNamespace>
+    <AssemblyName>Microsoft.Net.Http.Formatting.Test.Unit</AssemblyName>
+    <OutputType>Library</OutputType>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName />
+    <SccLocalPath />
+    <SccAuxPath />
+    <SccProvider />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System\Net\Http\ContentDispositionHeaderValueExtensionMethodsTests.cs" />
+    <Compile Include="System\Net\Http\FormattingUtilitiesTests.cs" />
+    <Compile Include="System\Net\Http\Formatting\FormUrlEncodedMediaTypeFormatterTests.cs" />
+    <Compile Include="System\Net\Http\Formatting\JsonMediaTypeFormatterTests.cs" />
+    <Compile Include="System\Net\Http\Formatting\JsonValueMediaTypeFormatterTests.cs" />
+    <Compile Include="System\Net\Http\Formatting\MediaRangeMappingTests.cs" />
+    <Compile Include="System\Net\Http\Formatting\MediaTypeConstantsTests.cs" />
+    <Compile Include="System\Net\Http\Formatting\MediaTypeFormatterCollectionTests.cs" />
+    <Compile Include="System\Net\Http\Formatting\MediaTypeFormatterExtensionMethodsTests.cs" />
+    <Compile Include="System\Net\Http\Formatting\MediaTypeFormatterTests.cs" />
+    <Compile Include="System\Net\Http\Formatting\MediaTypeHeaderValueEqualityComparerTests.cs" />
+    <Compile Include="System\Net\Http\Formatting\MediaTypeHeadeValueComparerTests.cs" />
+    <Compile Include="System\Net\Http\Formatting\MediaTypeHeadeValueExtensionMethodsTests.cs" />
+    <Compile Include="System\Net\Http\Formatting\ParsedMediaTypeHeaderValueTests.cs" />
+    <Compile Include="System\Net\Http\Formatting\QueryStringMappingTests.cs" />
+    <Compile Include="System\Net\Http\Formatting\RequestHeaderMappingTests.cs" />
+    <Compile Include="System\Net\Http\Formatting\UriPathExtensionMappingTests.cs" />
+    <Compile Include="System\Net\Http\Formatting\XmlMediaTypeFormatterTests.cs" />
+    <Compile Include="System\Net\Http\FormUrlEncodedParserTests.cs" />
+    <Compile Include="System\Net\Http\HttpContentCollectionExtensionMethodsTests.cs" />
+    <Compile Include="System\Net\Http\HttpContentExtensionMethodsTests.cs" />
+    <Compile Include="System\Net\Http\HttpContentMessageExtensionMethodsTests.cs" />
+    <Compile Include="System\Net\Http\HttpContentMultipartExtensionMethodsTests.cs" />
+    <Compile Include="System\Net\Http\HttpMessageContentTests.cs" />
+    <Compile Include="System\Net\Http\HttpRequestHeaderParserTests.cs" />
+    <Compile Include="System\Net\Http\HttpRequestLineParserTests.cs" />
+    <Compile Include="System\Net\Http\HttpRequestMessageOfTTests.cs" />
+    <Compile Include="System\Net\Http\HttpResponseHeaderParserTests.cs" />
+    <Compile Include="System\Net\Http\HttpResponseMessageOfTTests.cs" />
+    <Compile Include="System\Net\Http\HttpStatusLineParserTests.cs" />
+    <Compile Include="System\Net\Http\InternetMessageFormatHeaderParserTests.cs" />
+    <Compile Include="System\Net\Http\MimeMultipartParserTests.cs" />
+    <Compile Include="System\Net\Http\MultipartFileStreamProviderTests.cs" />
+    <Compile Include="System\Net\Http\MultipartFormDataStreamProviderTests.cs" />
+    <Compile Include="System\Net\Http\MultipartMemoryStreamProviderTests.cs" />
+    <Compile Include="System\Net\Http\ObjectContentOfTTests.cs" />
+    <Compile Include="System\Net\Http\ObjectContentTests.cs" />
+    <Compile Include="System\Net\Http\ParserData.cs" />
+    <Compile Include="System\Net\Http\Test\UnitTestDataSets.cs" />
+    <Compile Include="System\Net\Http\UnitTest.cs" />
+    <Compile Include="System\Net\Http\UnitTestSuite.cs" />
+    <Compile Include="System\Net\Http\UriExtensionMethodsTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\src\Microsoft.Json\Microsoft.Json.csproj">
+      <Project>{F0441BE9-BDC0-4629-BE5A-8765FFAA2481}</Project>
+      <Name>Microsoft.Json</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\src\Microsoft.Net.Http.Formatting\Microsoft.Net.Http.Formatting.csproj">
+      <Project>{668E9021-CE84-49D9-98FB-DF125A9FCDB0}</Project>
+      <Name>Microsoft.Net.Http.Formatting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\src\System.Net.Http\System.Net.Http.csproj">
+      <Project>{6D7A8E9E-1576-4E5D-AB2F-F3B540FD9AD1}</Project>
+      <Name>System.Net.Http</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\src\Microsoft.Server.Common\Microsoft.Server.Common.csproj">
+      <Project>{8D4DB4F7-78AB-4FCA-A9C6-DE7569CF8F50}</Project>
+      <Name>Microsoft.Server.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\common\Microsoft.TestCommon.WCF.Http\Microsoft.TestCommon.WCF.Http.csproj">
+      <Project>{068196D4-2386-47EB-802C-13151531A50F}</Project>
+      <Name>Microsoft.TestCommon.WCF.Http</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\common\Microsoft.TestCommon.WCF\Microsoft.TestCommon.WCF.csproj">
+      <Project>{FA0CA12A-4023-48D5-A545-38262AC432B7}</Project>
+      <Name>Microsoft.TestCommon.WCF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\common\Microsoft.TestCommon\Microsoft.TestCommon.csproj">
+      <Project>{FCCC4CB7-BAF7-4A57-9F89-E5766FE536C0}</Project>
+      <Name>Microsoft.TestCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory),WebApi.msbuild))\tools\WebApi.test.settings.targets" />
+  <PropertyGroup>
+    <ProjectGuid>{560E9DC4-8C8F-445B-B4A2-79A0604B3074}</ProjectGuid>
+    <RootNamespace>Microsoft.ApplicationServer.Http.Test.Sample</RootNamespace>
+    <AssemblyName>Microsoft.ApplicationServer.Http.Test.Sample</AssemblyName>
+    <OutputType>Library</OutputType>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName />
+    <SccLocalPath />
+    <SccAuxPath />
+    <SccProvider />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomFormatter\CustomFormatterTests.cs" />
+    <Compile Include="HttpBatching\HttpBatchingTests.cs" />
+    <Compile Include="HttpConfiguration\HttpConfigurationTests.cs" />
+    <Compile Include="HttpMemoryChannel\HttpMemoryChannelTests.cs" />
+    <Compile Include="JsonValueFormatter\JsonValueFormatterSampleTests.cs" />
+    <Compile Include="PocoService\PocoServiceTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaskDispatcherBehavior\TaskDispatcherBehaviorTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\samples\advanced\HttpBatching.Sample\HttpBatching.Sample.csproj">
+      <Project>{F18B5C30-7B91-4AA4-966C-68AED6E120D6}</Project>
+      <Name>HttpBatching.Sample</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\samples\advanced\HttpConfiguration.Sample\HttpConfiguration.Sample.csproj">
+      <Project>{DAEFA3B4-8827-47B3-9981-004E63F5DA59}</Project>
+      <Name>HttpConfiguration.Sample</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\samples\advanced\HttpMemoryChannel.Sample\HttpMemoryChannel.Sample.csproj">
+      <Project>{B6EC6073-C062-4D6A-9AC6-7E2AE8947FA4}</Project>
+      <Name>HttpMemoryChannel.Sample</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\samples\advanced\TaskDispatcherBehavior.Sample\TaskDispatcherBehavior.Sample.csproj">
+      <Project>{DD5BDE96-CB0E-43C5-85E6-E7AAC75E5439}</Project>
+      <Name>TaskDispatcherBehavior.Sample</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\samples\advanced\TaskDispatcherBehavior\TaskDispatcherBehavior.csproj">
+      <Project>{BFCDD124-D821-4712-8C1E-52B015DC195C}</Project>
+      <Name>TaskDispatcherBehavior</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\samples\basic\CustomFormatter.Sample\CustomFormatter.Sample.csproj">
+      <Project>{B93B68B9-F869-43CD-AE0B-71F3FCCB8D7B}</Project>
+      <Name>CustomFormatter.Sample</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\samples\basic\JsonValueFormatter.Sample\JsonValueFormatter.Sample.csproj">
+      <Project>{61F29AA5-B662-4C4B-8D6E-3E5AE9C311D3}</Project>
+      <Name>JsonValueFormatter.Sample</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\samples\basic\PocoService.Sample\PocoService.Sample.csproj">
+      <Project>{B95E69FA-C9E6-45DA-8FAD-AB5FCB25D44C}</Project>
+      <Name>PocoService.Sample</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\src\Microsoft.ApplicationServer.Http\Microsoft.ApplicationServer.Http.csproj">
+      <Project>{CD92FACC-3083-4458-BE12-1700CF95F2B2}</Project>
+      <Name>Microsoft.ApplicationServer.Http</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\src\Microsoft.Net.Http.Formatting\Microsoft.Net.Http.Formatting.csproj">
+      <Project>{668E9021-CE84-49D9-98FB-DF125A9FCDB0}</Project>
+      <Name>Microsoft.Net.Http.Formatting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\src\System.Net.Http\System.Net.Http.csproj">
+      <Project>{6D7A8E9E-1576-4E5D-AB2F-F3B540FD9AD1}</Project>
+      <Name>System.Net.Http</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\src\Microsoft.Server.Common\Microsoft.Server.Common.csproj">
+      <Project>{8D4DB4F7-78AB-4FCA-A9C6-DE7569CF8F50}</Project>
+      <Name>Microsoft.Server.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\common\Microsoft.TestCommon.WCF.Http\Microsoft.TestCommon.WCF.Http.csproj">
+      <Project>{068196D4-2386-47EB-802C-13151531A50F}</Project>
+      <Name>Microsoft.TestCommon.WCF.Http</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\common\Microsoft.TestCommon.WCF\Microsoft.TestCommon.WCF.csproj">
+      <Project>{FA0CA12A-4023-48D5-A545-38262AC432B7}</Project>
+      <Name>Microsoft.TestCommon.WCF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\common\Microsoft.TestCommon\Microsoft.TestCommon.csproj">
+      <Project>{FCCC4CB7-BAF7-4A57-9F89-E5766FE536C0}</Project>
+      <Name>Microsoft.TestCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(WebApiToolsPath)\WebApi.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

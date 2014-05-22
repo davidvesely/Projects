@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title>Type Service Sample Upload Data Form</title>
+</head>
+<body>
+    <h1>
+        Type Service Sample Upload Data Form</h1>
+    <p>
+        This sample WCF service reads the contents of an HTML file upload and deserializes the
+        contents into a local object which is then returned in the response.</p>
+    <form action="http://localhost:8080/typeservice" enctype="multipart/form-data" method="POST">
+    What is your name?
+    <input name="submitter" size="40" type="text"><br>
+    What file are you uploading)?
+    <input name="data" size="40" type="file">
+    (please use the file <b>TypeServiceSampleData.xml</b>)<br>
+    <input type="submit"></form>
+</body>
+</html>

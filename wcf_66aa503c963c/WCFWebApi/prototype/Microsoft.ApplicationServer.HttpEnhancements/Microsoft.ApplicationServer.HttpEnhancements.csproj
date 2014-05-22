@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory),WebApi.msbuild))\tools\WebApi.settings.targets" />
+  <PropertyGroup>
+    <ProjectGuid>{8C5CA420-BDC2-4B92-A20E-4EC1FBEEA27D}</ProjectGuid>
+    <RootNamespace>Microsoft.ApplicationServer.HttpEnhancements</RootNamespace>
+    <AssemblyName>Microsoft.ApplicationServer.HttpEnhancements</AssemblyName>
+    <OutputType>Library</OutputType>
+    <DocumentationFile>$(WebApiDocPath)\$(AssemblyName).XML</DocumentationFile>
+    <SccProjectName />
+    <SccLocalPath />
+    <SccAuxPath />
+    <SccProvider />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DocumentationFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DocumentationFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Microsoft\ApplicationServer\Http\JsonpHttpResponseHandler.cs" />
+    <Compile Include="Microsoft\ApplicationServer\Http\JsonpMediaTypeFormatter.cs" />
+    <Compile Include="Microsoft\ApplicationServer\Http\JsonpValueMediaTypeFormatter.cs" />
+    <Compile Include="Microsoft\ApplicationServer\Http\MediaTypeFormatterCollectionExtensions.cs" />
+    <Compile Include="Microsoft\ApplicationServer\Http\WebApiHttpOperationHandlerFactory.cs" />
+    <Compile Include="SR2.Designer.cs">
+      <DependentUpon>SR2.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Microsoft\ApplicationServer\Http\WebApiConfiguration.cs" />
+    <Compile Include="System\Runtime\TaskExtensions.cs" />
+    <Compile Include="System\ServiceModel\Description\ServiceReflector.cs" />
+    <Compile Include="System\ServiceModel\Description\TaskOperationAttribute.cs" />
+    <Compile Include="System\ServiceModel\Description\TaskServiceAttribute.cs" />
+    <Compile Include="System\ServiceModel\Description\TypeLoader.cs" />
+    <Compile Include="System\ServiceModel\Diagnostics\OperationInvokerTrace.cs" />
+    <Compile Include="System\ServiceModel\Dispatcher\CodeGenerator.cs" />
+    <Compile Include="System\ServiceModel\Dispatcher\InvokerUtil.cs" />
+    <Compile Include="System\ServiceModel\Dispatcher\TaskExtensions.cs" />
+    <Compile Include="System\ServiceModel\Dispatcher\TaskMethodInvoker.cs" />
+    <Compile Include="System\ServiceModel\EmptyArray.cs" />
+    <Compile Include="System\ServiceModel\IOperationContractAttributeProvider.cs" />
+    <Compile Include="System\Web\Routing\WebApiRoute.cs" />
+    <Compile Include="Microsoft\ApplicationServer\Http\HtmlFormatter.cs" />
+    <Compile Include="Microsoft\ApplicationServer\Http\PlainTextFormatter.cs" />
+    <Compile Include="System\Web\Routing\RouteCollectionExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SR.Designer.cs">
+      <DependentUpon>SR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Src\Microsoft.ApplicationServer.Http\Microsoft.ApplicationServer.Http.csproj">
+      <Project>{947ABFDB-E1A8-47D5-A982-A7B03CE02BC6}</Project>
+      <Name>Microsoft.ApplicationServer.Http</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Src\Microsoft.Json\Microsoft.Json.csproj">
+      <Project>{3B1B5BCE-4831-4203-8D8B-5F8AB1A3C03D}</Project>
+      <Name>Microsoft.Json</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Src\Microsoft.Net.Http.Formatting\Microsoft.Net.Http.Formatting.csproj">
+      <Project>{B4A3D624-FC8E-4E20-A7C1-054B48B17F79}</Project>
+      <Name>Microsoft.Net.Http.Formatting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Src\Microsoft.Server.Common\Microsoft.Server.Common.csproj">
+      <Project>{66C1FCD4-848E-4071-87ED-8FC1383A6403}</Project>
+      <Name>Microsoft.Server.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\System.Net.Http\System.Net.Http.csproj">
+      <Project>{6D7A8E9E-1576-4E5D-AB2F-F3B540FD9AD1}</Project>
+      <Name>System.Net.Http</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SR.resx">
+      <!-- <Generator>ResXFileCodeGenerator</Generator> -->
+      <StrictResXFileCodeGenerator>true</StrictResXFileCodeGenerator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>SR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SR2.resx">
+      <!-- <Generator>ResXFileCodeGenerator</Generator> -->
+      <StrictResXFileCodeGenerator>true</StrictResXFileCodeGenerator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>SR2.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(WebApiToolsPath)\WebApi.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

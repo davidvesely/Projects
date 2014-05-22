@@ -1,0 +1,227 @@
+<Project DefaultTargets="BuildAndTest" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+        <CodeAnalysis Condition=" '$(CodeAnalysis)' == '' ">true</CodeAnalysis>
+        <CodeAnalysisRuleSet Condition="'$(CodeAnalysisRuleSet)' == ''">MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+        <StyleCop Condition=" '$(StyleCop)' == '' ">true</StyleCop>
+        <ApiConformance Condition=" '$(ApiConformance)' == '' ">true</ApiConformance>
+
+        <!-- Build -->
+        <VersionStartYear>2011</VersionStartYear>
+        <BuildDate Condition=" '$(BuildDate)' == '' ">$([MSBuild]::Add(1, $([MSBuild]::Subtract($([System.DateTime]::Now.Year), $(VersionStartYear)))))$([System.DateTime]::Now.ToString("MMdd"))</BuildDate>
+        <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
+        <BuildVersion Condition=" '$(BuildVersion)' == '' ">2.0.$(BuildDate).$(BuildNumber)</BuildVersion>
+        <!-- <BuildDropLocation Condition=" '$(BuildDropLocation)' == '' ">\\bpdfiles01\commonshare\wcfwebapi\drops</BuildDropLocation> -->
+        <BuildDropLocation Condition=" '$(BuildDropLocation)' == '' ">\\bpdfiles01\commonshare\roncain\drops</BuildDropLocation>
+        <ProductSolution>WebApi.sln</ProductSolution>
+        <TestSolution>test\functional\functional-test.sln</TestSolution>
+    </PropertyGroup>
+
+    <ItemGroup>
+       <FilesToPublish Include="Microsoft.ApplicationServer.Http.dll" />
+       <FilesToPublish Include="Microsoft.Json.dll" />
+       <FilesToPublish Include="System.Net.Http.dll" />
+       <FilesToPublish Include="Microsoft.Net.Http.Formatting.dll" />
+       <FilesToPublish Include="Microsoft.Net.Http.Formatting.OData.dll" />
+       <FilesToPublish Include="Microsoft.Runtime.Serialization.Internal.dll" />
+       <FilesToPublish Include="Microsoft.Server.Common.dll" />
+       <FilesToPublish Include="Microsoft.ServiceModel.Internal.dll" />
+
+       <FilesToPublish Include="Microsoft.ApplicationServer.Http.pdb" />
+       <FilesToPublish Include="Microsoft.Json.pdb" />
+       <FilesToPublish Include="System.Net.Http.pdb" />
+       <FilesToPublish Include="Microsoft.Net.Http.Formatting.pdb" />
+       <FilesToPublish Include="Microsoft.Net.Http.Formatting.OData.pdb" />
+       <FilesToPublish Include="Microsoft.Runtime.Serialization.Internal.pdb" />
+       <FilesToPublish Include="Microsoft.Server.Common.pdb" />
+       <FilesToPublish Include="Microsoft.ServiceModel.Internal.pdb" />
+
+       <FilesToPublish Include="Microsoft.ApplicationServer.Http.xml" />
+       <FilesToPublish Include="Microsoft.Json.xml" />
+       <FilesToPublish Include="Microsoft.Net.Http.Formatting.xml" />
+       <FilesToPublish Include="Microsoft.Net.Http.Formatting.OData.xml" />
+
+       <FilesToPublish Include="external\OData\*.dll" />
+       <FilesToPublish Include="external\OData\*.pdb" />
+
+      </ItemGroup>
+
+    <!-- BUILD TARGETS -->
+    <Target Name="Describe">
+       <Message Text="Build version:          $(BuildVersion)" />
+       <Message Text="Build configuration:    $(Configuration)" />
+       <Message Text="Product solution:       $(ProductSolution)" />
+       <Message Text="Test solution:          $(TestSolution)" />
+       <Message Text="CodeAnalysis default:   $(CodeAnalysis) using ruleset $(CodeAnalysisRuleSet)" />
+       <Message Text="StyleCop default:       $(StyleCop)" />
+       <Message Text="Available targets:      BuildAndTest, Nightly, Publish, Defaults, Describe, Clean, Analyze, Build, BuildAll, BuildTest, UnitTest, Verify, PublishReleaseFull, PlaceTestDrop" />
+    </Target>
+
+    <!-- The Defaults target forces default settings for the CI machine -->
+    <Target Name="Defaults">
+      <PropertyGroup>
+        <Configuration>Release</Configuration>
+        <CodeAnalysis>true</CodeAnalysis>
+        <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+        <StyleCop>true</StyleCop>
+      </PropertyGroup>
+    </Target>
+
+    <Target Name="Clean">
+        <ItemGroup>
+            <ProjectToClean Include="$(ProductSolution)" />
+            <ProjectToClean Include="$(TestSolution)" Condition="Exists($(TestSolution))" />
+        </ItemGroup>
+
+        <MSBuild
+            Projects="@(ProjectToClean)"
+            Targets="Clean"
+            Properties="Configuration=$(Configuration)"
+              />
+<!--
+        <MSBuild
+            Projects="Setup\WebApi.sln"
+            Targets="Clean"
+            Properties="Configuration=$(Configuration)"
+            Condition="Exists($(WixTargetsPath))"
+            />
+-->
+
+        <RemoveDir Directories="bin;obj"/>
+ 
+    </Target>
+
+    <!-- Analyze runs StyleCop and FxCop at their current settings -->
+    <Target Name="Analyze" Condition = "'$(CodeAnalysis)' == 'true' or '$(StyleCop)' == 'true'" DependsOnTargets="BuildDebug">
+    </Target>
+
+    <!-- Build builds all the product and CIT projects -->
+    <Target Name="Build">
+        <MakeDir Directories="bin\$(Configuration)"/>
+        <MSBuild Projects="$(ProductSolution)" Targets="Build" Properties="Configuration=$(Configuration);ApiConformance=$(ApiConformance)"/>
+    </Target>
+
+    <!-- Analyze runs StyleCop and FxCop at their current settings -->
+    <Target Name="BuildDebug">
+        <MakeDir Directories="bin\Debug"/>
+        <MSBuild Projects="$(ProductSolution)" Targets="Build" Properties="Configuration=Debug;CodeAnalysis=$(CodeAnalysis);StyleCop=$(StyleCop)"/>
+    </Target>
+
+    <!-- BuildAll builds Debug, Retail and all Test projects -->
+    <Target Name="BuildAll" DependsOnTargets="BuildDebug;BuildRelease;BuildTest;">
+    </Target>
+
+    <Target Name="BuildRelease">
+        <MakeDir Directories="bin\Release"/>
+        <MSBuild Projects="$(ProductSolution)" Targets="Build" Properties="Configuration=Release"/>
+    </Target>
+
+    <!-- BuildTest builds only the Test solution -->
+    <Target Name="BuildTest">
+        <MakeDir Directories="bin\$(Configuration)"/>
+        <MSBuild Projects="$(TestSolution)" Condition="Exists($(TestSolution))" Targets="Build" Properties="Configuration=$(Configuration)"/>
+    </Target>
+
+    <!-- UnitTest runs the unit, integration and sample tests (but nothing from the Test solution) -->
+    <Target Name="UnitTest">
+        <ItemGroup>
+            <TestDLLs Include="bin\$(Configuration)\*.Test.*.dll" Exclude="bin\$(Configuration)\test\*.Functional.Test.dll;bin\$(Configuration)\Microsoft.Test.WebApi.Future.dll" />
+        </ItemGroup>
+
+        <PropertyGroup>
+            <TestSettingsFile Condition=" '$(Configuration)' == 'CodeCoverage' ">$(MsBuildProjectDirectory)\test\CodeCoverage.testsettings</TestSettingsFile>
+            <TestSettingsFile Condition=" '$(Configuration)' != 'CodeCoverage' ">$(MsBuildProjectDirectory)\test\Local.testsettings</TestSettingsFile>
+            <TestTrxFile>bin\$(Configuration)-TestResults.trx</TestTrxFile>
+        </PropertyGroup>
+
+        <Delete Files="$(TestTrxFile)" />
+        <Exec
+            Command="&quot;$(VS100COMNTOOLS)..\IDE\MSTEST.EXE&quot; /nologo /usestderr /resultsfile:&quot;$(TestTrxFile)&quot; @(TestDLLs -> '/testcontainer:&quot;%(Identity)&quot;', ' ') /testsettings:&quot;$(TestSettingsFile)&quot;" />
+
+    </Target>
+
+    <!-- BuildAndTest is the default build target and will build, verify and run all unit tests -->
+    <Target Name="BuildAndTest" DependsOnTargets="Defaults;Describe;Clean;BuildAll;UnitTest;">
+      <ItemGroup>
+
+      </ItemGroup>
+    </Target>
+
+    <!-- Nightly is called by CI machine each night to create the release of the day -->
+    <Target Name="Nightly" DependsOnTargets="BuildAndTest;Publish">
+    </Target>
+
+    <Target Name="Publish" DependsOnTargets="PublishDebug;PublishRelease;PublishReleaseFull">
+    </Target>
+
+    <Target Name="PublishRelease">
+
+      <PropertyGroup>
+         <BuildDropSourceFolder>bin\Release\</BuildDropSourceFolder>
+         <BuildDropDestinationFolder>$(BuildDropLocation)\$(BuildVersion)\EN\Retail\PackagePayload\</BuildDropDestinationFolder>
+      </PropertyGroup>
+
+      <MakeDir Directories="$(BuildDropDestinationFolder)" />
+
+      <Copy SourceFiles="@(FilesToPublish->'$(BuildDropSourceFolder)%(RecursiveDir)%(Filename)%(Extension)')"
+            DestinationFiles="@(FilesToPublish->'$(BuildDropDestinationFolder)%(RecursiveDir)%(Filename)%(Extension)')" />
+
+    </Target>
+
+    <Target Name="PublishDebug">
+
+      <PropertyGroup>
+         <BuildDropSourceFolder>bin\Debug\</BuildDropSourceFolder>
+         <BuildDropDestinationFolder>$(BuildDropLocation)\$(BuildVersion)\EN\Debug\PackagePayload\</BuildDropDestinationFolder>
+      </PropertyGroup>
+
+      <MakeDir Directories="$(BuildDropDestinationFolder)" />
+
+      <Copy SourceFiles="@(FilesToPublish->'$(BuildDropSourceFolder)%(RecursiveDir)%(Filename)%(Extension)')"
+            DestinationFiles="@(FilesToPublish->'$(BuildDropDestinationFolder)%(RecursiveDir)%(Filename)%(Extension)')" />
+
+    </Target>
+
+
+    <Target Name="PublishReleaseFull">
+
+      <PropertyGroup>
+         <BuildDropSourceFolder>bin\Release\</BuildDropSourceFolder>
+         <BuildDropDestinationFolder>$(BuildDropLocation)\$(BuildVersion)\EN\Retail\Full\</BuildDropDestinationFolder>
+      </PropertyGroup>
+
+      <ItemGroup>
+         <TestFilesToPublish Include="bin\Release\**\*.*" />
+      </ItemGroup>
+
+      <MakeDir Directories="$(BuildDropDestinationFolder)" />
+
+      <Copy SourceFiles="@(TestFilesToPublish)"
+            DestinationFiles="@(TestFilesToPublish->'$(BuildDropDestinationFolder)%(RecursiveDir)%(Filename)%(Extension)')" />
+
+    </Target>
+
+   <!-- PlaceTestDrop pushes the test files to the right location for ETCM.
+        It must be executed after BuildTest. 
+     -->
+    <Target Name="PlaceTestDrop">
+
+        <Error
+            Text="Cannot find bin\release\placetestdrop.bat.  Did you remember to run BuildTest first?" 
+            Condition="!Exists('bin\release\placetestdrop.bat')"/>
+
+        <Message
+            Text="Executing placetestdrop.bat to deploy test files..." 
+            Condition="Exists('bin\release\placetestdrop.bat')"/>
+
+        <Exec
+            Command="bin\release\placetestdrop.bat" 
+            Condition="Exists('bin\release\placetestdrop.bat')"/>
+
+    </Target>
+
+    <!-- Verify builds, runs StyleCop and FxCop and unit tests only using the current settings -->
+    <Target Name="Verify" DependsOnTargets="Analyze;Build;UnitTest;" />
+
+</Project>

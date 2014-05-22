@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory),WebApi.msbuild))\tools\WebApi.samples.settings.targets" />
+  <PropertyGroup>
+    <ProjectGuid>{EB6959E8-E602-4BE9-B3B1-2C69B456ED65}</ProjectGuid>
+    <RootNamespace>MimeMultipart.Sample</RootNamespace>
+    <AssemblyName>MimeMultipart.Sample</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <SccProjectName />
+    <SccLocalPath />
+    <SccAuxPath />
+    <SccProvider />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
+  <ItemGroup>
+    <Reference Include="Ionic.Zip, Version=1.9.1.5, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>External\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Contact.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Services\DotNetZipService.cs" />
+    <Compile Include="Services\FileResult.cs" />
+    <Compile Include="Services\FileService.cs" />
+    <Compile Include="Services\MultipartGeneratorService.cs" />
+    <Compile Include="Services\SplitFileService.cs" />
+    <Compile Include="Services\TypeService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="External\Ionic.Zip.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Web\Default.html" />
+    <Content Include="Web\DotNetZipService.html" />
+    <Content Include="Web\FileService.html" />
+    <Content Include="Web\Html5MultipleFileService.html" />
+    <Content Include="Web\SplitFileService.html" />
+    <Content Include="Web\TypeService.html" />
+    <Content Include="Web\TypeServiceSampleData.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Microsoft.ApplicationServer.Http\Microsoft.ApplicationServer.Http.csproj">
+      <Project>{CD92FACC-3083-4458-BE12-1700CF95F2B2}</Project>
+      <Name>Microsoft.ApplicationServer.Http</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\Microsoft.Net.Http.Formatting\Microsoft.Net.Http.Formatting.csproj">
+      <Project>{668E9021-CE84-49D9-98FB-DF125A9FCDB0}</Project>
+      <Name>Microsoft.Net.Http.Formatting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\System.Net.Http\System.Net.Http.csproj">
+      <Project>{6D7A8E9E-1576-4E5D-AB2F-F3B540FD9AD1}</Project>
+      <Name>System.Net.Http</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web\SampleData.01" />
+    <None Include="Web\SampleData.02" />
+    <None Include="Web\SampleData.03" />
+    <None Include="Web\SampleData.deflate" />
+    <None Include="Web\SampleData.random">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(WebApiToolsPath)\WebApi.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

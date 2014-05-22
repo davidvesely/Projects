@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory),WebApi.msbuild))\tools\WebApi.test.settings.targets" />
+  <PropertyGroup>
+    <ProjectGuid>{EB09CD33-992B-4A31-AB95-8673BA90F1CD}</ProjectGuid>
+    <RootNamespace>Microsoft.Json.Test.Unit</RootNamespace>
+    <AssemblyName>Microsoft.Json.Test.Unit</AssemblyName>
+    <OutputType>Library</OutputType>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName />
+    <SccLocalPath />
+    <SccAuxPath />
+    <SccProvider />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\AnyInstance.cs" />
+    <Compile Include="Common\ExceptionTestHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System\Json\FormUrlEncodedJsonTests.cs" />
+    <Compile Include="System\Json\JsonArrayTest.cs" />
+    <Compile Include="System\Json\JsonDefaultTest.cs" />
+    <Compile Include="System\Json\JsonObjectTest.cs" />
+    <Compile Include="System\Json\JsonPrimitiveTest.cs" />
+    <Compile Include="System\Json\JsonTypeTest.cs" />
+    <Compile Include="System\Json\JsonValueDynamicMetaObjectTest.cs" />
+    <Compile Include="System\Json\JsonValueDynamicTest.cs" />
+    <Compile Include="System\Json\JsonValueLinqExtensionsTest.cs" />
+    <Compile Include="System\Json\JsonValueTest.cs" />
+    <Compile Include="System\Json\JsonWebTokenTests.cs" />
+    <Compile Include="System\Json\UnitTest.cs" />
+    <Compile Include="System\Json\UnitTestSuite.cs" />
+    <Compile Include="System\Runtime\Serialization\Json\JsonValueExtensionsTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\src\Microsoft.Server.Common\Microsoft.Server.Common.csproj">
+      <Project>{8D4DB4F7-78AB-4FCA-A9C6-DE7569CF8F50}</Project>
+      <Name>Microsoft.Server.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\common\Microsoft.TestCommon.WCF.Http\Microsoft.TestCommon.WCF.Http.csproj">
+      <Project>{068196D4-2386-47EB-802C-13151531A50F}</Project>
+      <Name>Microsoft.TestCommon.WCF.Http</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\common\Microsoft.TestCommon.WCF\Microsoft.TestCommon.WCF.csproj">
+      <Project>{FA0CA12A-4023-48D5-A545-38262AC432B7}</Project>
+      <Name>Microsoft.TestCommon.WCF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\common\Microsoft.TestCommon\Microsoft.TestCommon.csproj">
+      <Project>{FCCC4CB7-BAF7-4A57-9F89-E5766FE536C0}</Project>
+      <Name>Microsoft.TestCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\src\Microsoft.Json\Microsoft.Json.csproj">
+      <Project>{F0441BE9-BDC0-4629-BE5A-8765FFAA2481}</Project>
+      <Name>Microsoft.Json</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="WildcardCert.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="WildcardCert.pfx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(WebApiToolsPath)\WebApi.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

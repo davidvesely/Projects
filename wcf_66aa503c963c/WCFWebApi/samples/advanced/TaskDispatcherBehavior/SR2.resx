@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccessDenied" xml:space="preserve">
+    <value>Access is denied.</value>
+  </data>
+  <data name="AttemptedToGetContractTypeForButThatTypeIs1" xml:space="preserve">
+    <value>Attempted to get contract type for {0}, but that type is not a ServiceContract, nor does it inherit a ServiceContract.</value>
+  </data>
+  <data name="couldnTFindRequiredAttributeOfTypeOn2" xml:space="preserve">
+    <value>Couldn't find required attribute of type {0} on {1}.</value>
+  </data>
+  <data name="InvalidAsyncBeginMethodSignatureForMethod2" xml:space="preserve">
+    <value>Invalid async Begin method signature for method {0} in ServiceContract type {1}. Your begin method must take an AsyncCallback and an object as the last two arguments and return an IAsyncResult.</value>
+  </data>
+  <data name="InvalidAsyncEndMethodSignatureForMethod2" xml:space="preserve">
+    <value>Invalid async End method signature for method {0} in ServiceContract type {1}. Your end method must take an IAsyncResult as the last argument.</value>
+  </data>
+  <data name="MoreThanOneEndMethodFoundForAsyncBeginMethod3" xml:space="preserve">
+    <value>OperationContract method '{0}' in type '{1}' does not properly implement the async pattern, as more than one corresponding method '{2}' was found. When using the async pattern, exactly one end method must be provided. Either remove or rename one or more of the '{2}' methods such that there is just one, or set the AsyncPattern property on method '{0}' to false.</value>
+  </data>
+  <data name="NoEndMethodFoundForAsyncBeginMethod3" xml:space="preserve">
+    <value>OperationContract method '{0}' in type '{1}' does not properly implement the async pattern, as no corresponding method '{2}' could be found. Either provide a method called '{2}' or set the AsyncPattern property on method '{0}' to false.</value>
+  </data>
+  <data name="PartialTrustServiceCtorNotVisible" xml:space="preserve">
+    <value>The Service with name '{0}' could not be constructed because the application does not have permission to construct the type: both the Type and its default parameter-less constructor must be public.</value>
+  </data>
+  <data name="PartialTrustServiceMethodNotVisible" xml:space="preserve">
+    <value>The Method with name '{1}' in Type '{0}' could not be invoked because the application does not have permission to invoke the method: both the Method and its containing Type must be public.</value>
+  </data>
+  <data name="ServicesWithoutAServiceContractAttributeCan2" xml:space="preserve">
+    <value>The {0} declared on method '{1}' in type '{2}' is invalid. {0}s are only valid on methods that are declared in a type that has ServiceContractAttribute. Either add ServiceContractAttribute to type '{2}' or remove {0} from method '{1}'.</value>
+  </data>
+  <data name="SFxBadByReferenceParameterMetadata" xml:space="preserve">
+    <value>Method '{0}' in class '{1}' has bad parameter metadata: a pass-by-reference parameter is marked with the 'in' but not the 'out' parameter mode.</value>
+  </data>
+  <data name="SFxBadByValueParameterMetadata" xml:space="preserve">
+    <value>Method '{0}' in class '{1}' has bad parameter metadata: a pass-by-value parameter is marked with the 'out' parameter mode.</value>
+  </data>
+  <data name="SFxCodeGenArrayTypeIsNotSupported" xml:space="preserve">
+    <value>Array of type {0} is not supported.</value>
+  </data>
+  <data name="SFxCodeGenCanOnlyStoreIntoArgOrLocGot0" xml:space="preserve">
+    <value>Can only store into ArgBuilder or LocalBuilder. Got: {0}.</value>
+  </data>
+  <data name="SFxCodeGenExpectingEnd" xml:space="preserve">
+    <value>Expecting End {0}.</value>
+  </data>
+  <data name="SFxCodeGenIsNotAssignableFrom" xml:space="preserve">
+    <value>{0} is not assignable from {1}.</value>
+  </data>
+  <data name="SFxCodeGenNoConversionPossibleTo" xml:space="preserve">
+    <value>No conversion possible to {0}.</value>
+  </data>
+  <data name="SFxCodeGenUnknownConstantType" xml:space="preserve">
+    <value>Internal Error: Unrecognized constant type {0}.</value>
+  </data>
+  <data name="SFxContractInheritanceRequiresInterfaces" xml:space="preserve">
+    <value>The service class of type {0} both defines a ServiceContract and inherits a ServiceContract from type {1}. Contract inheritance can only be used among interface types.  If a class is marked with ServiceContractAttribute, it must be the only type in the hierarchy with ServiceContractAttribute.  Consider moving the ServiceContractAttribute on type {1} to a separate interface that type {1} implements.</value>
+  </data>
+  <data name="SFxContractInheritanceRequiresInterfaces2" xml:space="preserve">
+    <value>The service class of type {0} both defines a ServiceContract and inherits a ServiceContract from type {1}. Contract inheritance can only be used among interface types.  If a class is marked with ServiceContractAttribute, then another service class cannot derive from it.</value>
+  </data>
+  <data name="SFxDisallowedAttributeCombination" xml:space="preserve">
+    <value>The type or member named '{0}' could not be loaded because it has two incompatible attributes: '{1}' and '{2}'. To fix the problem, remove one of the attributes from the type or member.</value>
+  </data>
+  <data name="SFxErrorReflectingOnMethod3" xml:space="preserve">
+    <value>An error occurred while loading attribute '{0}' on method '{1}' in type '{2}'.  Please see InnerException for more details.</value>
+  </data>
+  <data name="SFxErrorReflectingOnParameter4" xml:space="preserve">
+    <value>An error occurred while loading attribute '{0}' on parameter {1} of method '{2}' in type '{3}'.  Please see InnerException for more details.</value>
+  </data>
+  <data name="SFxErrorReflectingOnType2" xml:space="preserve">
+    <value>An error occurred while loading attribute '{0}' on type '{1}'.  Please see InnerException for more details.</value>
+  </data>
+  <data name="SFxErrorReflectionOnUnknown1" xml:space="preserve">
+    <value>An error occurred while loading attribute '{0}'.  Please see InnerException for more details.</value>
+  </data>
+  <data name="SFxInputParametersToServiceInvalid" xml:space="preserve">
+    <value>Service implementation object invoked with wrong number of input parameters, operation expects {0} parameters but was called with {1} parameters.</value>
+  </data>
+  <data name="SFxInputParametersToServiceNull" xml:space="preserve">
+    <value>Service implementation object invoked with null input parameters, but operation expects {0} parameters.</value>
+  </data>
+  <data name="SFxNoMostDerivedContract" xml:space="preserve">
+    <value>The contract specified by type '{0}' is ambiguous.  The type derives from at least two different types that each define its own service contract.  For this type to be used as a contract type, exactly one of its inherited contracts must be more derived than any of the others.</value>
+  </data>
+  <data name="SFxNoServiceObject" xml:space="preserve">
+    <value>The service implementation object was not initialized or is not available.</value>
+  </data>
+  <data name="SFxTaskNotStarted" xml:space="preserve">
+    <value>The given Task instance has not yet been started. Task instances must be started before they are returned from operations.</value>
+  </data>
+  <data name="SFXTooManyNames" xml:space="preserve">
+    <value>Cannot generate unique name for name {0}</value>
+  </data>
+  <data name="SFXUnvalidNamespaceParam" xml:space="preserve">
+    <value>Parameter value '{0}' is an invalid URI.</value>
+  </data>
+  <data name="SFXUnvalidNamespaceValue" xml:space="preserve">
+    <value>Value '{0}' provided for {1} property is an invalid URI.</value>
+  </data>
+  <data name="tooManyAttributesOfTypeOn2" xml:space="preserve">
+    <value>Too many attributes of type {0} on {1}.</value>
+  </data>
+</root>

@@ -1,0 +1,7 @@
+The file Microsoft.Net.Http.xml is copied as-is from the location
+
+	\\docbuild2\Public\Trunk\Main\drop\Intellisense\1033\System.Net.Http.xml
+
+We then have a simple copy rule that copies the file to the output folder
+so that Visual Studio can pick it up for IntelliSense.
+
