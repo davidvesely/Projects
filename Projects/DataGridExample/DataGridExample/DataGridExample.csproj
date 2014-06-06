@@ -154,14 +154,19 @@
       <LastGenOutput>HRModel.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\DataGridExample.DatabaseModel.EMPLOYEES.datasource" />
+    <None Include="Properties\DataSources\DataGridExample.DatabaseModel.HREntities.datasource" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\EF5Winforms\EF5WinForms\EF5Winforms.csproj">
+      <Project>{BC070117-CAD0-4B62-AB0E-5F6B4955F164}</Project>
+      <Name>EF5Winforms</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
