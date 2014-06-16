@@ -12,18 +12,19 @@ namespace DataGridExample.DatabaseModel
     using System;
     using System.Collections.Generic;
     
-    public partial class COUNTRIES
+    public partial class user
     {
-        public COUNTRIES()
+        public user()
         {
-            this.LOCATIONS = new HashSet<LOCATIONS>();
+            this.orders = new HashSet<order>();
+            this.AssignedOrders = new HashSet<order>();
         }
     
-        public string COUNTRY_ID { get; set; }
-        public string COUNTRY_NAME { get; set; }
-        public Nullable<decimal> REGION_ID { get; set; }
+        public int iduser { get; set; }
+        public string name { get; set; }
+        public bool is_active { get; set; }
     
-        public virtual REGIONS REGIONS { get; set; }
-        public virtual ICollection<LOCATIONS> LOCATIONS { get; set; }
+        public virtual ICollection<order> orders { get; set; }
+        public virtual ICollection<order> AssignedOrders { get; set; }
     }
 }

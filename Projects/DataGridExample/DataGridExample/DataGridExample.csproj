@@ -37,6 +37,8 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.Entity.EF5, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -59,44 +61,30 @@
   <ItemGroup>
     <Compile Include="BusinessLogic\CustomRollback.cs" />
     <Compile Include="BusinessLogic\ObservableListSource.cs" />
-    <Compile Include="DatabaseModel\COUNTRIES.cs">
-      <DependentUpon>HRModel.tt</DependentUpon>
+    <Compile Include="BusinessLogic\OrdersLayer.cs" />
+    <Compile Include="DatabaseModel\order.cs">
+      <DependentUpon>OrdersModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseModel\DEPARTMENTS.cs">
-      <DependentUpon>HRModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DatabaseModel\EMPLOYEES.cs">
-      <DependentUpon>HRModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DatabaseModel\EMP_DETAILS_VIEW.cs">
-      <DependentUpon>HRModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DatabaseModel\HRModel.Context.cs">
+    <Compile Include="DatabaseModel\OrdersModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HRModel.Context.tt</DependentUpon>
+      <DependentUpon>OrdersModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseModel\HRModel.cs">
+    <Compile Include="DatabaseModel\OrdersModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HRModel.tt</DependentUpon>
+      <DependentUpon>OrdersModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseModel\HRModel.Designer.cs">
+    <Compile Include="DatabaseModel\OrdersModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HRModel.edmx</DependentUpon>
+      <DependentUpon>OrdersModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseModel\JOBS.cs">
-      <DependentUpon>HRModel.tt</DependentUpon>
+    <Compile Include="DatabaseModel\status.cs">
+      <DependentUpon>OrdersModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseModel\JOB_HISTORY.cs">
-      <DependentUpon>HRModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DatabaseModel\LOCATIONS.cs">
-      <DependentUpon>HRModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DatabaseModel\REGIONS.cs">
-      <DependentUpon>HRModel.tt</DependentUpon>
+    <Compile Include="DatabaseModel\user.cs">
+      <DependentUpon>OrdersModel.tt</DependentUpon>
     </Compile>
     <Compile Include="FormMainWindow.cs">
       <SubType>Form</SubType>
@@ -104,17 +92,17 @@
     <Compile Include="FormMainWindow.Designer.cs">
       <DependentUpon>FormMainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormSimpleGrid.cs">
+    <Compile Include="Forms\FormOrders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormSimpleGrid.Designer.cs">
-      <DependentUpon>FormSimpleGrid.cs</DependentUpon>
+    <Compile Include="Forms\FormOrders.Designer.cs">
+      <DependentUpon>FormOrders.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\RadAboutBox1.cs">
+    <Compile Include="Forms\FormUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\RadAboutBox1.Designer.cs">
-      <DependentUpon>RadAboutBox1.cs</DependentUpon>
+    <Compile Include="Forms\FormUsers.Designer.cs">
+      <DependentUpon>FormUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="MyAboutBox.cs">
       <SubType>Form</SubType>
@@ -127,34 +115,36 @@
     <EmbeddedResource Include="FormMainWindow.resx">
       <DependentUpon>FormMainWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormSimpleGrid.resx">
-      <DependentUpon>FormSimpleGrid.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormOrders.resx">
+      <DependentUpon>FormOrders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RadAboutBox1.resx">
-      <DependentUpon>RadAboutBox1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormUsers.resx">
+      <DependentUpon>FormUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyAboutBox.resx">
       <DependentUpon>MyAboutBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="DatabaseModel\HRModel.edmx">
+    <EntityDeploy Include="DatabaseModel\OrdersModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HRModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>OrdersModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DatabaseModel\HRModel.Context.tt">
+    <None Include="DatabaseModel\OrdersModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HRModel.edmx</DependentUpon>
-      <LastGenOutput>HRModel.Context.cs</LastGenOutput>
+      <DependentUpon>OrdersModel.edmx</DependentUpon>
+      <LastGenOutput>OrdersModel.Context.cs</LastGenOutput>
     </None>
-    <None Include="DatabaseModel\HRModel.edmx.diagram">
-      <DependentUpon>HRModel.edmx</DependentUpon>
+    <None Include="DatabaseModel\OrdersModel.edmx.diagram">
+      <DependentUpon>OrdersModel.edmx</DependentUpon>
     </None>
-    <None Include="DatabaseModel\HRModel.tt">
+    <None Include="DatabaseModel\OrdersModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HRModel.edmx</DependentUpon>
-      <LastGenOutput>HRModel.cs</LastGenOutput>
+      <DependentUpon>OrdersModel.edmx</DependentUpon>
+      <LastGenOutput>OrdersModel.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\DataGridExample.DatabaseModel.HREntities.datasource" />
+    <None Include="Properties\DataSources\DataGridExample.DatabaseModel.order.datasource" />
+    <None Include="Properties\DataSources\DataGridExample.DatabaseModel.status.datasource" />
+    <None Include="Properties\DataSources\DataGridExample.DatabaseModel.user.datasource" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -162,14 +152,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\EF5Winforms\EF5WinForms\EF5Winforms.csproj">
-      <Project>{BC070117-CAD0-4B62-AB0E-5F6B4955F164}</Project>
-      <Name>EF5Winforms</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

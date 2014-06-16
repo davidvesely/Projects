@@ -31,16 +31,18 @@ namespace DataGridExample
 
         private void dataGridExampleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormSimpleGrid dataGrid = new FormSimpleGrid();
-            dataGrid.MdiParent = this;
-            dataGrid.WindowState = FormWindowState.Maximized;
-            dataGrid.Show();
+            FormUsers form = new FormUsers();
+            form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
+            form.Show();
         }
 
-        private void radAboutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ordersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RadAboutBox1 aboutBox = new RadAboutBox1();
-            aboutBox.ShowDialog();
+            FormOrders form = new FormOrders();
+            form.MdiParent = this;
+            form.WindowState = FormWindowState.Maximized;
+            form.Show();
         }
     }
 }

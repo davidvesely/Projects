@@ -12,16 +12,16 @@ namespace DataGridExample.DatabaseModel
     using System;
     using System.Collections.Generic;
     
-    public partial class JOB_HISTORY
+    public partial class status
     {
-        public int EMPLOYEE_ID { get; set; }
-        public System.DateTime START_DATE { get; set; }
-        public System.DateTime END_DATE { get; set; }
-        public string JOB_ID { get; set; }
-        public Nullable<short> DEPARTMENT_ID { get; set; }
+        public status()
+        {
+            this.orders = new HashSet<order>();
+        }
     
-        public virtual DEPARTMENTS DEPARTMENTS { get; set; }
-        public virtual EMPLOYEES EMPLOYEES { get; set; }
-        public virtual JOBS JOBS { get; set; }
+        public int idstatus { get; set; }
+        public string name { get; set; }
+    
+        public virtual ICollection<order> orders { get; set; }
     }
 }
