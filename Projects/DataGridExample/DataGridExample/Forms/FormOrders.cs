@@ -23,11 +23,16 @@ namespace DataGridExample.Forms
         private void FormOrders_Load(object sender, EventArgs e)
         {
             radGridView1.DataSource = ordersLayer.GetOrders();
+
             GridViewComboBoxColumn statusColumn = radGridView1.Columns["status"] as GridViewComboBoxColumn;
             statusColumn.DataSource = ordersLayer.GetStatus();
             string[] types = new string[] { "Type1", "Type2", "Type3" };
+
             GridViewComboBoxColumn typeColumn = radGridView1.Columns["type"] as GridViewComboBoxColumn;
             typeColumn.DataSource = types;
+
+            GridViewComboBoxColumn creatorColumn = radGridView1.Columns["creator"] as GridViewComboBoxColumn;
+            creatorColumn.DataSource = ordersLayer.GetUsers();
         }
 
         private void radButtonSave_Click(object sender, EventArgs e)
