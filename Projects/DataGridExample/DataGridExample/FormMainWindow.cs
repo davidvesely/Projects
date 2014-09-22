@@ -18,28 +18,14 @@ namespace DataGridExample
             InitializeComponent();
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MyAboutBox aboutBox = new MyAboutBox();
-            aboutBox.ShowDialog();
-        }
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void dataGridExampleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormUsers form = new FormUsers();
-            form.MdiParent = this;
-            form.WindowState = FormWindowState.Maximized;
-            form.Show();
-        }
-
         private void ordersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormOrders form = new FormOrders();
+            FormOPR form = new FormOPR();
             form.MdiParent = this;
             form.WindowState = FormWindowState.Maximized;
             form.Show();

@@ -34,11 +34,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
-    <Reference Include="MySql.Data.Entity.EF5, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -53,38 +57,339 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Telerik.WinControls, Version=2014.1.402.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="Telerik.WinControls, Version=2014.1.402.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="Telerik.WinControls.GridView, Version=2014.1.402.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.WinControls.UI, Version=2014.1.402.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
-    <Reference Include="TelerikCommon, Version=2014.1.402.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="Telerik.WinControls.Themes.Desert, Version=2014.1.402.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.UI, Version=2014.1.402.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="TelerikCommon, Version=2014.1.402.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogic\CustomRollback.cs" />
-    <Compile Include="BusinessLogic\ObservableListSource.cs" />
-    <Compile Include="BusinessLogic\OrdersLayer.cs" />
-    <Compile Include="DatabaseModel\order.cs">
-      <DependentUpon>OrdersModel.tt</DependentUpon>
+    <Compile Include="BusinessLogic\ExtensionUtils.cs" />
+    <Compile Include="BusinessLogic\DatabaseLayer.cs" />
+    <Compile Include="DatabaseModel\ANALSMET.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseModel\OrdersModel.Context.cs">
+    <Compile Include="DatabaseModel\ANPOK.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\ANPOKITEM.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\BAL_AKTIV.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\BAL_PASIV.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\BARCODE.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\CENI.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\DDS_ETIKET.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\DECL_DDS.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\DNEVNIK_DDS.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\DOC.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\DOCACC.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\DOCACCSTORE.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\GAR_KARTA.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\GAR_PRINT.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\GROUP_PART.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\HEAD_BOOK.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\INV_BOOK.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\ITEM_DOC_RIGHTS.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\ITEM_KLI_RIGHTS.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\ITEM_RIGHTS.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\IZDELIE.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\IZDELIE_ITEM.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\KASA.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\KASA_DOC.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\KASA_DOCACC.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\KASA_ITEM.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\KASA_OPR.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\KASA_OPR_ITEM.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\KNTR_GRP_PART_PRICE.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\KONTRAGENT.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\KONTRAGENT_PART_PRICE.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\MATERIAL.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\NOM_COMM.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\NOM_COMM_ITEM.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\OPP.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\OPR.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\OPRITEM.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\OPR_PRIHOD.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\OPR_RAZHOD.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\ORDERS.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\ORDERS_ITEM.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\PART.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\PARTITEM.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\PARTMETRO.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\PART_EQU.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\PART_LOG.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\PAY_KONTR.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\PBCATCOL.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\PBCATFMT.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\PBCATTBL.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\POKUPKI_DDS.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\PREDNAZ_DA.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\PREKLU.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\PRODAGBI_DDS.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\PRODUCTION.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\RAZH.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\RAZHITEM.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\RAZHSING.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\RAZP.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\RAZPITEM.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\RAZPSTORE.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\REG_USER.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\REVAL_DA.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\REVIZIA.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\REVIZIA_ITEM.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\REVIZIA_PARTIDA.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\SALDA.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\SALDA_NEG.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\SCET_STAT.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\SCET_STAT_ITEM.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\SEARCHSQL.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\SEQ_FREE.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\SEQ_GEN.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\SERVISE.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\SINTSMET.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\SINTSMET_ANPOK.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\SMETKA_SMETKA.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\SMETKA_SMETKA_ITEM.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\STGRUPI.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\StZagoraModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>OrdersModel.Context.tt</DependentUpon>
+      <DependentUpon>StZagoraModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseModel\OrdersModel.cs">
+    <Compile Include="DatabaseModel\StZagoraModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>OrdersModel.tt</DependentUpon>
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseModel\OrdersModel.Designer.cs">
+    <Compile Include="DatabaseModel\StZagoraModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>OrdersModel.edmx</DependentUpon>
+      <DependentUpon>StZagoraModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseModel\status.cs">
-      <DependentUpon>OrdersModel.tt</DependentUpon>
+    <Compile Include="DatabaseModel\TDNEVNIK_DDS.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseModel\user.cs">
-      <DependentUpon>OrdersModel.tt</DependentUpon>
+    <Compile Include="DatabaseModel\TDOCACC.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\TDOCACC_CU.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\TDOC_CU.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\TINSDOC.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\TINSOPR.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\TOPR.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\TOPRITEM.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\TPART.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\TPARTINS.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\TPART_POL.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\VAL.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\VALKURS.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\VID_DA.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\VIES_DDS.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\VIES_DDS_SEC_05.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\VNOS.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\VNOSINVOICE.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\VNOSNOMRAZH.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\VNOSRAZHODI.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\V_HEAD_BOOK.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\ZAPRH_IZDELIE.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\ZAPRH_IZDELIE_ITEM.cs">
+      <DependentUpon>StZagoraModel.tt</DependentUpon>
     </Compile>
     <Compile Include="FormMainWindow.cs">
       <SubType>Form</SubType>
@@ -92,23 +397,11 @@
     <Compile Include="FormMainWindow.Designer.cs">
       <DependentUpon>FormMainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormOrders.cs">
+    <Compile Include="Forms\FormOPR.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormOrders.Designer.cs">
-      <DependentUpon>FormOrders.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormUsers.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormUsers.Designer.cs">
-      <DependentUpon>FormUsers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MyAboutBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MyAboutBox.Designer.cs">
-      <DependentUpon>MyAboutBox.cs</DependentUpon>
+    <Compile Include="Forms\FormOPR.Designer.cs">
+      <DependentUpon>FormOPR.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -121,36 +414,29 @@
     <EmbeddedResource Include="FormMainWindow.resx">
       <DependentUpon>FormMainWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormOrders.resx">
-      <DependentUpon>FormOrders.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormOPR.resx">
+      <DependentUpon>FormOPR.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormUsers.resx">
-      <DependentUpon>FormUsers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MyAboutBox.resx">
-      <DependentUpon>MyAboutBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EntityDeploy Include="DatabaseModel\OrdersModel.edmx">
+    <EntityDeploy Include="DatabaseModel\StZagoraModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>OrdersModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>StZagoraModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DatabaseModel\OrdersModel.Context.tt">
+    <None Include="DatabaseModel\StZagoraModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>OrdersModel.edmx</DependentUpon>
-      <LastGenOutput>OrdersModel.Context.cs</LastGenOutput>
+      <DependentUpon>StZagoraModel.edmx</DependentUpon>
+      <LastGenOutput>StZagoraModel.Context.cs</LastGenOutput>
     </None>
-    <None Include="DatabaseModel\OrdersModel.edmx.diagram">
-      <DependentUpon>OrdersModel.edmx</DependentUpon>
+    <None Include="DatabaseModel\StZagoraModel.edmx.diagram">
+      <DependentUpon>StZagoraModel.edmx</DependentUpon>
     </None>
-    <None Include="DatabaseModel\OrdersModel.tt">
+    <None Include="DatabaseModel\StZagoraModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>OrdersModel.edmx</DependentUpon>
-      <LastGenOutput>OrdersModel.cs</LastGenOutput>
+      <DependentUpon>StZagoraModel.edmx</DependentUpon>
+      <LastGenOutput>StZagoraModel.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\DataGridExample.DatabaseModel.order.datasource" />
-    <None Include="Properties\DataSources\DataGridExample.DatabaseModel.status.datasource" />
-    <None Include="Properties\DataSources\DataGridExample.DatabaseModel.user.datasource" />
+    <None Include="Properties\DataSources\DataGridExample.DatabaseModel.OPR.datasource" />
+    <None Include="Properties\DataSources\DataGridExample.DatabaseModel.OPRITEM.datasource" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -169,6 +455,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
+  <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

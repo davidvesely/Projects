@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dc80160dd63b4e55976188bf33cbe3cd" Name="Diagram1" ZoomLevel="108">
+        <EntityTypeShape EntityType="StZagoraModel.ANALSMET" Width="1.5" PointX="7.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.ANPOK" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.ANPOKITEM" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.BAL_AKTIV" Width="1.5" PointX="0.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.BAL_PASIV" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.BARCODE" Width="1.5" PointX="9.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.CENI" Width="1.5" PointX="19.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.DDS_ETIKET" Width="1.5" PointX="2.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.DECL_DDS" Width="1.5" PointX="4.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.DNEVNIK_DDS" Width="1.5" PointX="15.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.DOC" Width="1.5" PointX="10.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.DOCACC" Width="1.5" PointX="13" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.DOCACCSTORE" Width="1.5" PointX="15.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.GAR_KARTA" Width="1.5" PointX="20.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.GAR_PRINT" Width="1.5" PointX="21.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.GROUP_PART" Width="1.5" PointX="17.75" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.INV_BOOK" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.ITEM_DOC_RIGHTS" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.ITEM_KLI_RIGHTS" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.ITEM_RIGHTS" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.IZDELIE" Width="1.5" PointX="22.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.IZDELIE_ITEM" Width="1.5" PointX="22.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.KASA" Width="1.5" PointX="12.75" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.KASA_DOC" Width="1.5" PointX="17.75" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.KASA_DOCACC" Width="1.5" PointX="20" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.KASA_ITEM" Width="1.5" PointX="15" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.KASA_OPR" Width="1.5" PointX="7.75" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.KASA_OPR_ITEM" Width="1.5" PointX="10" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.KNTR_GRP_PART_PRICE" Width="1.5" PointX="20" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.KONTRAGENT" Width="1.5" PointX="22.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.KONTRAGENT_PART_PRICE" Width="1.5" PointX="22.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.MATERIAL" Width="1.5" PointX="6.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.NOM_COMM" Width="1.5" PointX="17.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.NOM_COMM_ITEM" Width="1.5" PointX="20" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.OPP" Width="1.5" PointX="12.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.OPR" Width="1.5" PointX="10.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.OPR_PRIHOD" Width="1.5" PointX="14.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.OPR_RAZHOD" Width="1.5" PointX="23.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.OPRITEM" Width="1.5" PointX="13" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.ORDERS" Width="1.5" PointX="17.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.ORDERS_ITEM" Width="1.5" PointX="20" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.PART" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.PART_EQU" Width="1.5" PointX="8.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.PART_LOG" Width="1.5" PointX="24.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.PARTITEM" Width="1.5" PointX="24.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.PARTMETRO" Width="1.5" PointX="19.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.PAY_KONTR" Width="1.5" PointX="24.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.PBCATCOL" Width="1.5" PointX="21.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.PBCATFMT" Width="1.5" PointX="23.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.PBCATTBL" Width="1.5" PointX="16.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.POKUPKI_DDS" Width="1.5" PointX="25.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.PREDNAZ_DA" Width="1.5" PointX="25.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.PREKLU" Width="1.5" PointX="26.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.PRODAGBI_DDS" Width="1.5" PointX="26.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.PRODUCTION" Width="1.5" PointX="10.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.RAZH" Width="1.5" PointX="12.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.RAZHITEM" Width="1.5" PointX="26.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.RAZHSING" Width="1.5" PointX="26.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.RAZP" Width="1.5" PointX="6.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.RAZPITEM" Width="1.5" PointX="27.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.RAZPSTORE" Width="1.5" PointX="27.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.REG_USER" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.REVAL_DA" Width="1.5" PointX="27.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.REVIZIA" Width="1.5" PointX="5.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.REVIZIA_ITEM" Width="1.5" PointX="8" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.REVIZIA_PARTIDA" Width="1.5" PointX="8" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.SALDA" Width="1.5" PointX="28.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.SALDA_NEG" Width="1.5" PointX="28.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.SCET_STAT" Width="1.5" PointX="17.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.SCET_STAT_ITEM" Width="1.5" PointX="20" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.SEARCHSQL" Width="1.5" PointX="28.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.SEQ_FREE" Width="1.5" PointX="28.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.SEQ_GEN" Width="1.5" PointX="28.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.SERVISE" Width="1.5" PointX="18.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.SINTSMET" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.SINTSMET_ANPOK" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.SMETKA_SMETKA" Width="1.5" PointX="2.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.SMETKA_SMETKA_ITEM" Width="1.5" PointX="5" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.STGRUPI" Width="1.5" PointX="27.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.TDNEVNIK_DDS" Width="1.5" PointX="0.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.TDOC_CU" Width="1.5" PointX="8.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.TDOCACC" Width="1.5" PointX="29.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.TDOCACC_CU" Width="1.5" PointX="29.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.TINSDOC" Width="1.5" PointX="29.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.TINSOPR" Width="1.5" PointX="30.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.TOPR" Width="1.5" PointX="30.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.TOPRITEM" Width="1.5" PointX="30.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.TPART" Width="1.5" PointX="20.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.TPART_POL" Width="1.5" PointX="22.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.TPARTINS" Width="1.5" PointX="30.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.VAL" Width="1.5" PointX="15.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.VALKURS" Width="1.5" PointX="18" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.VID_DA" Width="1.5" PointX="30.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.VIES_DDS" Width="1.5" PointX="24.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.VIES_DDS_SEC_05" Width="1.5" PointX="2.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.VNOS" Width="1.5" PointX="5.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.VNOSINVOICE" Width="1.5" PointX="8" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.VNOSNOMRAZH" Width="1.5" PointX="4.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.VNOSRAZHODI" Width="1.5" PointX="8" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.ZAPRH_IZDELIE" Width="1.5" PointX="12.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.ZAPRH_IZDELIE_ITEM" Width="1.5" PointX="15" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.HEAD_BOOK" Width="1.5" PointX="10.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StZagoraModel.V_HEAD_BOOK" Width="1.5" PointX="12.75" PointY="31.75" IsExpanded="true" />
+        <AssociationConnector Association="StZagoraModel.FK_ANPOKITEM_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="StZagoraModel.FK1_SINTSMET_ANPOK" ManuallyRouted="false" />
+        <AssociationConnector Association="StZagoraModel.FK_DNEVNIK_DDS" ManuallyRouted="false" />
+        <AssociationConnector Association="StZagoraModel.FK_DOCACC" ManuallyRouted="false" />
+        <AssociationConnector Association="StZagoraModel.FK_DOCACCSTORE" ManuallyRouted="false" />
+        <AssociationConnector Association="StZagoraModel.SYS_C0027827" ManuallyRouted="false" />
+        <AssociationConnector Association="StZagoraModel.FK_USER_NAME_DOC" ManuallyRouted="false" />
+        <AssociationConnector Association="StZagoraModel.FK_ITEM_KLI_RIGHTS" ManuallyRouted="false" />
+        <AssociationConnector Association="StZagoraModel.FK_USER_NAME" ManuallyRouted="false" />
+        <AssociationConnector Association="StZagoraModel.FK_KASA_ITEM" ManuallyRouted="false" />
+        <AssociationConnector Association="StZagoraModel.FK_KASA_DOCACC" ManuallyRouted="false" />
+        <AssociationConnector Association="StZagoraModel.FK_KASA_OPR_ITEM" ManuallyRouted="false" />
+        <AssociationConnector Association="StZagoraModel.FK_NOM_COMM_ITEM" ManuallyRouted="false" />
+        <AssociationConnector Association="StZagoraModel.FK_OPRITEM" ManuallyRouted="false" />
+        <AssociationConnector Association="StZagoraModel.FK_ORDERS_ITEM" ManuallyRouted="false" />
+        <AssociationConnector Association="StZagoraModel.FK_REVIZIA_ITEM" ManuallyRouted="false" />
+        <AssociationConnector Association="StZagoraModel.FK_REVIZIA_PARTIDA" ManuallyRouted="false" />
+        <AssociationConnector Association="StZagoraModel.FK_SCET_STAT_ITEM" ManuallyRouted="false" />
+        <AssociationConnector Association="StZagoraModel.FK2_SINTSMET_ANPOK_SMETKA" ManuallyRouted="false" />
+        <AssociationConnector Association="StZagoraModel.FK_SMETKA_SMETKA_ITEM" ManuallyRouted="false" />
+        <AssociationConnector Association="StZagoraModel.FK_VALKURS" ManuallyRouted="false" />
+        <AssociationConnector Association="StZagoraModel.FK_VNOSINVOICE_VNOS" ManuallyRouted="false" />
+        <AssociationConnector Association="StZagoraModel.FK_VNOSRAZHODI_VNOSKOD" ManuallyRouted="false" />
+        <AssociationConnector Association="StZagoraModel.FK_ZAPRH_IZDELIE_ITEM" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
