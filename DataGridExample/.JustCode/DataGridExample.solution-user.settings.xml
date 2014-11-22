@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JustCodeSettings Version="0.0" Timestamp="7ef4e6e3-56d2-4d7b-8b72-a1439ef5f36a">
+  <IgnoredErrorsAndWarningsSettings xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <IgnoredErrorsAndWarnings Version="2">
+      <FilePath>
+        <FileRelativePath>DataGridExample/BusinessLogic/ObservableListSource.cs</FileRelativePath>
+        <ProjectRelativePath>DataGridExample/DataGridExample.csproj</ProjectRelativePath>
+        <IgnoredElement>
+          <TextualIdentifier>9653788838190523363</TextualIdentifier>
+        </IgnoredElement>
+        <IgnoredElement>
+          <TextualIdentifier>15654372276624171936</TextualIdentifier>
+        </IgnoredElement>
+      </FilePath>
+    </IgnoredErrorsAndWarnings>
+  </IgnoredErrorsAndWarningsSettings>
+</JustCodeSettings>
