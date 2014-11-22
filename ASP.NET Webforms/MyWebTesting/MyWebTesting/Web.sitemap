@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
-  <siteMapNode roles="*">
-    <siteMapNode title="Home" url="~/Default.aspx?param1=1" />
-    <siteMapNode title="Videos" url="~/Tags.aspx" />
-    <siteMapNode title="Members" url="~/MemberList.aspx" />
-    <siteMapNode title="Test" url="https://www.google.bg?provider=https://www.google.bg" />
-  </siteMapNode>
-</siteMap>
