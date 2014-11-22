@@ -45,6 +45,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
@@ -307,6 +308,7 @@
     <Compile Include="DatabaseModel\STGRUPI.cs">
       <DependentUpon>StZagoraModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseModel\StZagoraEntities.Advanced.cs" />
     <Compile Include="DatabaseModel\StZagoraModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -402,6 +404,12 @@
     </Compile>
     <Compile Include="Forms\FormOPR.Designer.cs">
       <DependentUpon>FormOPR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControls\MyButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyControls\MyButton.Designer.cs">
+      <DependentUpon>MyButton.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

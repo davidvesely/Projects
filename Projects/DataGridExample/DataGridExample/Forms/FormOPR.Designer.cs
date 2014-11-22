@@ -63,6 +63,7 @@
             this.radButtonSave = new Telerik.WinControls.UI.RadButton();
             this.radGridView2 = new Telerik.WinControls.UI.RadGridView();
             this.oPRITEMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.myButton1 = new DataGridExample.MyControls.MyButton();
             ((System.ComponentModel.ISupportInitialize)(this.radGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGridView1.MasterTemplate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.oPRBindingSource)).BeginInit();
@@ -310,11 +311,21 @@
             // 
             this.oPRITEMBindingSource.DataSource = typeof(DataGridExample.DatabaseModel.OPRITEM);
             // 
+            // myButton1
+            // 
+            this.myButton1.Location = new System.Drawing.Point(373, 588);
+            this.myButton1.Name = "myButton1";
+            this.myButton1.Size = new System.Drawing.Size(75, 23);
+            this.myButton1.TabIndex = 3;
+            this.myButton1.Text = "myButton1";
+            this.myButton1.UseVisualStyleBackColor = true;
+            // 
             // FormOPR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(774, 617);
+            this.Controls.Add(this.myButton1);
             this.Controls.Add(this.radGridView2);
             this.Controls.Add(this.radButtonSave);
             this.Controls.Add(this.radGridView1);
@@ -344,5 +355,6 @@
         private Telerik.WinControls.UI.RadGridView radGridView2;
         private System.Windows.Forms.BindingSource oPRBindingSource;
         private System.Windows.Forms.BindingSource oPRITEMBindingSource;
+        private MyControls.MyButton myButton1;
     }
 }

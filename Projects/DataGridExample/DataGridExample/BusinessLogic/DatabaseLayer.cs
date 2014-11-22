@@ -11,7 +11,7 @@ namespace DataGridExample.BusinessLogic
 {
     public class DatabaseLayer : IDisposable
     {
-        private StZagoraEntities db = new StZagoraEntities();
+        private StZagoraEntitiesEx db = new StZagoraEntitiesEx();
 
         public void Dispose()
         {
