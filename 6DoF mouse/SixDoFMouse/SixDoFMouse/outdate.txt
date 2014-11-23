@@ -1,0 +1,21 @@
+List<Point3D> pl = new List<Point3D>();
+            pl.Add(CalibrationOrientation[0][0]);
+            pl.Add(CalibrationOrientation[1][0]);
+            OnDrawTest(pl);
+            pl = new List<Point3D>();
+            pl.Add(CalibrationOrientation[0][0]);
+            pl.Add(CalibrationOrientation[2][0]);
+            OnDrawTest(pl);
+
+            pl = new List<Point3D>();
+            pl.Add(CalibrationOrientation[0][0]);
+            pl.Add(CalibrationOrientation[0][1]);
+            OnDrawTest(pl);
+            pl = new List<Point3D>();
+            pl.Add(CalibrationOrientation[0][0]);
+            pl.Add(CalibrationOrientation[0][2]);
+            OnDrawTest(pl);
+            pl = new List<Point3D>();
+            pl.Add(CalibrationOrientation[0][0]);
+            pl.Add(CalibrationOrientation[0][3]);
+            OnDrawTest(pl);

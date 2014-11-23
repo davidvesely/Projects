@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geometry", "Geometry\Geometry.csproj", "{3A552CFF-BC41-4A6A-B364-A3D97DCC53EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoCADTest2", "..\AutoCADTest2\AutoCADTest2\AutoCADTest2.csproj", "{38728E72-19F4-418A-90AD-9207DF84080B}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://server-pc:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Geometry\\Geometry.csproj
+		SccProjectName1 = Geometry
+		SccLocalPath1 = Geometry
+		SccProjectUniqueName2 = ..\\AutoCADTest2\\AutoCADTest2\\AutoCADTest2.csproj
+		SccProjectName2 = ../AutoCADTest2/AutoCADTest2
+		SccLocalPath2 = ..\\AutoCADTest2\\AutoCADTest2
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A552CFF-BC41-4A6A-B364-A3D97DCC53EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A552CFF-BC41-4A6A-B364-A3D97DCC53EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A552CFF-BC41-4A6A-B364-A3D97DCC53EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A552CFF-BC41-4A6A-B364-A3D97DCC53EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38728E72-19F4-418A-90AD-9207DF84080B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38728E72-19F4-418A-90AD-9207DF84080B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38728E72-19F4-418A-90AD-9207DF84080B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38728E72-19F4-418A-90AD-9207DF84080B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
