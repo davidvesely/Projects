@@ -50,15 +50,19 @@
     <Compile Include="ErrorHandlerForm.Designer.cs">
       <DependentUpon>ErrorHandlerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ErrorHandling.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>ErrorHandling.settings</DependentUpon>
+    <Compile Include="FormModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModal.Designer.cs">
+      <DependentUpon>FormModal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ErrorHandlerForm.resx">
       <DependentUpon>ErrorHandlerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormModal.resx">
+      <DependentUpon>FormModal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -69,10 +73,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="ErrorHandling.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>ErrorHandling.Designer.cs</LastGenOutput>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

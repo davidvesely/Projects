@@ -6,6 +6,7 @@ using System.Security.Permissions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsExceptionHandling.Properties;
 
 namespace WinFormsExceptionHandling
 {
@@ -45,7 +46,7 @@ namespace WinFormsExceptionHandling
                     "with the following information:\n\n" + ex.ToString();
 
                 // Create an EventLog instance and assign its source.
-                EventLog.WriteEntry(ErrorHandling.Default.LogSource, errorMsg);
+                EventLog.WriteEntry(Settings.Default.LogSource, errorMsg);
             }
             catch (Exception exc)
             {
@@ -110,9 +111,9 @@ namespace WinFormsExceptionHandling
         private static void InitializeLogging()
         {
             // Since we can't prevent the app from terminating, log this to the event log. 
-            if (!EventLog.SourceExists(ErrorHandling.Default.LogSource))
+            if (!EventLog.SourceExists(Settings.Default.LogSource))
             {
-                EventLog.CreateEventSource(ErrorHandling.Default.LogSource, ErrorHandling.Default.LogName);
+                EventLog.CreateEventSource(Settings.Default.LogSource, Settings.Default.LogName);
             }
         }
     }
