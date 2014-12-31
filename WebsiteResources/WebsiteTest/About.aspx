@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="WebsiteTest.About"
     culture="bg-BG" meta:resourcekey="PageResource1" uiculture="bg-BG" %>
 
+<%@ Register Assembly="DevExpress.Web.v14.1, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
+
 <%@ Register Assembly="DevExpress.Web.v14.1, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
@@ -21,6 +23,13 @@
         <p>        
             Use this area to provide additional information.
         </p>
+
+        <dx:ASPxGridView ID="ASPxGridView1" runat="server">
+            <Columns>
+                <dx:GridViewDataTextColumn Caption="ID" FieldName="ID" />
+                <dx:GridViewDataTextColumn Caption="Name" FieldName="Name" />
+            </Columns>
+        </dx:ASPxGridView>
     </article>
 
     <aside>

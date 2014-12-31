@@ -307,6 +307,14 @@
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Code\Extensions.cs" />
+    <Compile Include="Code\FakeDB.cs" />
+    <Compile Include="Code\ResDictionary.cs" />
+    <Compile Include="Code\ResourceGlobalization.cs" />
+    <Compile Include="Code\SmartITResourceDAL.cs" />
+    <Compile Include="Code\SmartITResourceProvider.cs" />
+    <Compile Include="Code\SmartITResourceProviderFactory.cs" />
+    <Compile Include="Code\SmartITResourceReader.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -370,12 +378,6 @@
     <Content Include="App_LocalResources\Site.Master.bg-BG.resx" />
     <Content Include="App_LocalResources\Site.Master.resx" />
     <EmbeddedResource Include="Properties\licenses.licx" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WebsiteResxProject\WebsiteResxProject.csproj">
-      <Project>{a15fe249-0ca0-4ac8-b694-1d70caf7624c}</Project>
-      <Name>WebsiteResxProject</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
