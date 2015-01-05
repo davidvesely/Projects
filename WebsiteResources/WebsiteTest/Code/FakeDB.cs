@@ -35,13 +35,13 @@ namespace WebsiteTest.Code
                 ResourceType = "Resource",
             });
 
-            table.Add(new ResourceGlobalization()
-            {
-                CultureCode = string.Empty,
-                ResourceType = "About.aspx",
-                ResourceKey = "ASPxButton1Resource1.Text",
-                ResourceValue = "A Button",
-            });
+            //table.Add(new ResourceGlobalization()
+            //{
+            //    CultureCode = string.Empty,
+            //    ResourceType = "About.aspx",
+            //    ResourceKey = "ASPxButton1Resource1.Text",
+            //    ResourceValue = "A Button",
+            //});
 
             table.Add(new ResourceGlobalization()
             {
@@ -51,13 +51,13 @@ namespace WebsiteTest.Code
                 ResourceValue = "English label",
             });
 
-            table.Add(new ResourceGlobalization()
-            {
-                CultureCode = string.Empty,
-                ResourceType = "About.aspx",
-                ResourceKey = "PageResource1.Title",
-                ResourceValue = "About",
-            });
+            //table.Add(new ResourceGlobalization()
+            //{
+            //    CultureCode = string.Empty,
+            //    ResourceType = "About.aspx",
+            //    ResourceKey = "PageResource1.Title",
+            //    ResourceValue = "About",
+            //});
 
             table.Add(new ResourceGlobalization()
             {

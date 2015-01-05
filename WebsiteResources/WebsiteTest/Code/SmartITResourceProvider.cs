@@ -87,7 +87,6 @@ namespace WebsiteTest.Code
                     resxProvider = factory.CreateLocalResourceProvider(originalClassName);
 
                 value = resxProvider.GetObject(resourceKey, new CultureInfo(cultureName));
-
                 (_resourceCache[cultureName] as Dictionary<string, object>).Add(resourceKey, value);
             }
             
@@ -141,94 +140,5 @@ namespace WebsiteTest.Code
 
             return resources;
         }  
-
-        //public System.Collections.ICollection GetImplicitResourceKeys(string keyPrefix)
-        //{
-        //    List<ImplicitResourceKey> keys = new List<ImplicitResourceKey>();
-
-        //    IDictionaryEnumerator Enumerator = this.ResourceReader.GetEnumerator();
-        //    if (Enumerator == null)
-        //        return keys; // Cannot return null!
-
-        //    foreach (DictionaryEntry dictentry in this.ResourceReader)
-        //    {
-        //        string key = (string)dictentry.Key;
-
-        //        if (key.StartsWith(keyPrefix + ".", StringComparison.InvariantCultureIgnoreCase) == true)
-        //        {
-        //            string keyproperty = String.Empty;
-        //            if (key.Length > (keyPrefix.Length + 1))
-        //            {
-        //                int pos = key.IndexOf('.');
-        //                if ((pos > 0) && (pos == keyPrefix.Length))
-        //                {
-        //                    keyproperty = key.Substring(pos + 1);
-        //                    if (String.IsNullOrEmpty(keyproperty) == false)
-        //                    {
-        //                        //Debug.WriteLine("Adding Implicit Key: " + keyPrefix + " - " + keyproperty);
-        //                        ImplicitResourceKey implicitkey = new ImplicitResourceKey(String.Empty, keyPrefix, keyproperty);
-        //                        keys.Add(implicitkey);
-        //                    }
-        //                }
-        //            }
-        //        }
-        //    }
-        //    return keys;
-        //}
-
-        //public object GetObject(ImplicitResourceKey key, CultureInfo culture)
-        //{
-        //    string ResourceKey = ConstructFullKey(key);
-
-        //    string CultureName = null;
-        //    if (culture != null)
-        //        CultureName = culture.Name;
-        //    else
-        //        CultureName = CultureInfo.CurrentUICulture.Name;
-
-        //    return this.GetObjectInternal(ResourceKey, CultureName);
-        //}
-
-        //private static string ConstructFullKey(ImplicitResourceKey entry)
-        //{
-        //    string text = entry.KeyPrefix + "." + entry.Property;
-        //    if (entry.Filter.Length > 0)
-        //    {
-        //        text = entry.Filter + ":" + text;
-        //    }
-        //    return text;
-        //}
-
-        //object GetObjectInternal(string ResourceKey, string CultureName)
-        //{
-        //    HashSet<Resource> Resources = _resourceCache[CultureName];
-
-        //    object value = null;
-        //    if (Resources == null)
-        //        value = null;
-        //    else
-        //        value = Resources.Where(r => r.ResourceKey == ResourceKey).First();
-
-        //    // *** If we're at a specific culture (en-Us) and there's no value fall back
-        //    // *** to the generic culture (en)
-        //    if (value == null && CultureName.Length > 3)
-        //    {
-        //        // *** try again with the 2 letter locale
-        //        return GetObjectInternal(ResourceKey, CultureName.Substring(0, 2));
-        //    }
-
-        //    // *** If the value is still null get the invariant value
-        //    if (value == null)
-        //    {
-        //        //Resources = this.GetResourceCache("");
-        //        if (Resources == null)
-        //            value = null;
-        //        else
-        //            value = value = Resources.Where(r => r.ResourceKey == "").First();
-        //    }
-
-
-        //    return value;
-        //}
     }
 }
