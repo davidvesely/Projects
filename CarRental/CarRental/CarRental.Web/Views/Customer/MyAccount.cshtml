@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "My Account";
+    ViewBag.Name = "Account";
+}
+@section scripts
+{
+    <script src="@Url.Content("~/Binding/ViewModels/MyAccountViewModel.js")" type="text/javascript"></script>
+}
+
+<br />
+<h2>My Account</h2>
+
+<div data-ng-controller="MyAccountViewModel">
+    <div ng-switch="viewMode">
+        <div ng-switch-when="account">
+            <form>
+                @Html.Partial("~/Views/Shared/_ValidationErrors.cshtml")
+                <div class="input-prepend">
+                    <span class="add-on" style="width: 140px; text-align: left;">First name:</span>
+                    <input type="text" ng-model="accountModel.FirstName" style="width: 250px;" placeholder="first name" />
+                </div>
+                <div class="input-prepend">
+                    <span class="add-on" style="width: 140px; text-align: left;">Last name:</span>
+                    <input type="text" ng-model="accountModel.LastName" style="width: 250px;" placeholder="last name" />
+                </div>
+                <div class="input-prepend">
+                    <span class="add-on" style="width: 140px; text-align: left;">Address:</span>
+                    <input type="text" ng-model="accountModel.Address" style="width: 350px;" placeholder="address" />
+                </div>
+                <div class="input-prepend">
+                    <span class="add-on" style="width: 140px; text-align: left;">City:</span>
+                    <input type="text" ng-model="accountModel.City" style="width: 350px;" placeholder="city" />
+                </div>
+                <div class="input-prepend">
+                    <span class="add-on" style="width: 140px; text-align: left;">State:</span>
+                    <input type="text" ng-model="accountModel.State" style="width: 100px;" placeholder="state" />
+                </div>
+                <div class="input-prepend">
+                    <span class="add-on" style="width: 140px; text-align: left;">Zip code:</span>
+                    <input type="text" ng-model="accountModel.ZipCode" style="width: 150px;" placeholder="zip code" />
+                </div>
+                <div class="input-prepend">
+                    <span class="add-on" style="width: 140px; text-align: left;">Credit card #:</span>
+                    <input type="text" ng-model="accountModel.CreditCard" style="width: 250px;" placeholder="credi card" />
+                </div>
+                <div class="input-prepend">
+                    <span class="add-on" style="width: 140px; text-align: left;">Exp. date:</span>
+                    <input type="text" ng-model="accountModel.ExpDate" style="width: 250px;" placeholder="MM/YY" />
+                </div>
+                <hr style="width: 415px; text-align: left;" />
+                <div>
+                    <button type="submit" class="btn btn-info" ng-click="save()">Save</button>
+                </div>
+            </form>
+        </div>
+        <div ng-switch-when="success">
+            <h2>Account information updated!</h2>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+﻿<div>
+    <p class="input-group" style="width: 400px;">
+        <span class="input-group-addon" style="width: 140px; text-align: left;">Credit card #:</span>
+        <input type="text" ng-model="accountModelStep3.CreditCard" class="form-control" placeholder="credit card" />
+    </p>
+    <p class="input-group" style="width: 400px;">
+        <span class="input-group-addon" style="width: 140px; text-align: left;">Exp. date:</span>
+        <input type="text" ng-model="accountModelStep3.ExpDate" class="form-control" placeholder="MM/YY" />
+    </p>
+    <hr style="width: 415px; text-align: left;" />
+    <div>
+        <a href="#" class="btn btn-info" ng-click="previous()">Previous</a>
+        <a href="#" class="btn btn-info" ng-click="confirm()">Next</a>
+    </div>
+</div>

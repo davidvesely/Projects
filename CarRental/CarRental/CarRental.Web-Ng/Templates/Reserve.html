@@ -1,0 +1,21 @@
+﻿<div>
+    <p class="input-group" style="width: 400px;">
+        <span class="input-group-addon" style="width: 140px; text-align: left;">Pickup date:</span>
+        <input type="text" ng-model="reserveCarModel.PickupDate" class="form-control"
+               datepicker-popup="MM/dd/yyyy" is-open="openedPickup" />
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="openPickup($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+    </p>
+    <br />
+    <p class="input-group" style="width: 400px;">
+        <span class="input-group-addon" style="width: 140px; text-align: left;">Return date:</span>
+        <input type="text" ng-model="reserveCarModel.ReturnDate" class="form-control"
+               datepicker-popup="MM/dd/yyyy" is-open="openedReturn" />
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="openReturn($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+    </p>
+    <hr style="width: 415px; text-align: left;" />
+    <a class="btn btn-primary btn-large" ng-click="submit()">Select an available car</a>
+</div>

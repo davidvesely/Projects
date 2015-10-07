@@ -1,0 +1,40 @@
+﻿<div ng-switch="viewMode">
+    <div ng-switch-when="carlist">
+        <h3>Available Cars</h3>
+        <div ng-show="cars.length > 0">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Year</th>
+                        <th>Make / Model</th>
+                        <th>Color</th>
+                        <th>Price per day</th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="car in cars">
+                    <tr style="vertical-align: central">
+                        <td><a href="#" ng-click="selectCar(car)">select</a></td>
+                        <td>{{ car.Year }}</td>
+                        <td>{{ car.Description }}</td>
+                        <td>{{ car.Color }}</td>
+                        <td>{{ car.RentalPrice }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div ng-show="cars.length == 0">
+            <h2>There are no available cars for the desired dates.</h2>
+        </div>
+        <div>
+            <a class="btn btn-primary btn-large" href="/customer/reserve">Back to select reservation dates</a>
+        </div>
+    </div>
+    <div ng-switch-when="success">
+        <h3>
+            Thank you for reserving your car!
+            <br />
+            Your reservation number is {{ reservationNumber }}.
+        </h3>
+    </div>
+</div>

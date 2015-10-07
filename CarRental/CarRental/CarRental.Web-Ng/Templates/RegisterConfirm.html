@@ -1,0 +1,44 @@
+﻿<div>
+    <p class="input-group">
+        <span class="input-group-addon" style="width: 140px; text-align: left;">First name: </span>
+        <span style="margin-left: 3px;">{{ accountModelStep1.FirstName }}</span>
+    </p>
+    <p class="input-group">
+        <span class="input-group-addon" style="width: 140px; text-align: left;">Last name: </span>
+        <span style="margin-left: 3px;">{{ accountModelStep1.LastName }}</span>
+    </p>
+    <p class="input-group">
+        <span class="input-group-addon" style="width: 140px; text-align: left;">Address: </span>
+        <span style="margin-left: 3px;">{{ accountModelStep1.Address }}</span>
+    </p>
+    <p class="input-group">
+        <span class="input-group-addon" style="width: 140px; text-align: left;">City: </span>
+        <span style="margin-left: 3px;">{{ accountModelStep1.City }}</span>
+    </p>
+    <p class="input-group">
+        <span class="input-group-addon" style="width: 140px; text-align: left;">State: </span>
+        <span style="margin-left: 3px;">{{ accountModelStep1.State }}</span>
+    </p>
+    <p class="input-group">
+        <span class="input-group-addon" style="width: 140px; text-align: left;">Zip code: </span>
+        <span style="margin-left: 3px;">{{ accountModelStep1.ZipCode }}</span>
+    </p>
+    <p class="input-group">
+        <span class="input-group-addon" style="width: 140px; text-align: left;">Login email: </span>
+        <span style="margin-left: 3px;">{{ accountModelStep2.LoginEmail }}</span>
+    </p>
+    <p class="input-group">
+        <span class="input-group-addon" style="width: 140px; text-align: left;">Credit card: </span>
+        <span style="margin-left: 3px;">{{ accountModelStep3.CreditCard }}</span>
+    </p>
+    <p>
+    <p class="input-group">
+        <span class="input-group-addon" style="width: 140px; text-align: left;">Exp. date: </span>
+        <span style="margin-left: 3px;">{{ accountModelStep3.ExpDate }}</span>
+    </p>
+    <hr style="width: 415px; text-align: left;" />
+    <div>
+        <a href="#" class="btn btn-info" ng-click="previous()">Previous</a>
+        <a href="#" class="btn btn-info" ng-click="createAccount()">Create Account</a>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Reserve a Car";
+    ViewBag.Name = "ReserveCar";
+}
+@section scripts
+{
+    <script src="@Url.Content("~/Binding/Models/ReserveCarModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Binding/ViewModels/ReserveCarViewModel.js")" type="text/javascript"></script>
+}
+@section footerScript
+{
+    angular.bootstrap(document.getElementById("reserveCar"),['reserveCar']);
+}
+<br />
+<h2>Make a reservation</h2>
+
+<div data-ng-app="reserveCar" id="reserveCar" data-ng-controller="ReserveCarViewModel">
+    @Html.Partial("~/Views/Shared/_ValidationErrors.cshtml")
+    <div ng-view></div>
+</div>

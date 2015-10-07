@@ -1,0 +1,30 @@
+﻿@model CarRental.Web.Models.AccountLoginModel
+@{
+    ViewBag.Title = "Account Login";
+}
+@section scripts
+{
+    <script src="@Url.Content("~/Binding/Models/AccountLoginModel.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Binding/ViewModels/AccountLoginViewModel.js")" type="text/javascript"></script>
+}
+
+<div data-ng-controller="AccountLoginViewModel" ng-init="returnUrl = '@Model.ReturnUrl'">
+    <br /><br />
+    @Html.Partial("~/Views/Shared/_ValidationErrors.cshtml")
+    <p class="input-group" style="width: 400px;">
+        <span class="input-group-addon" style="width: 140px; text-align: left;">Login Email:</span>
+        <input type="text" class="form-control" ng-model="accountModel.LoginEmail" placeholder="login email" />
+    </p>
+    <p class="input-group" style="width: 400px;">
+        <span class="input-group-addon" style="width: 140px; text-align: left;">Password:</span>
+        <input type="password" class="form-control" ng-model="accountModel.Password" placeholder="password" />
+    </p>
+    <p class="input-group" style="width: 400px;">
+        <span class="input-group-addon" style="width: 140px; text-align: left;">Remember Me:</span>
+        <input type="checkbox" class="form-control" ng-model="accountModel.RememberMe" style="margin-left: 5px; text-align: left; width: 40px;" />
+    </p>
+    <hr style="width: 415px; text-align: left;" />
+    <p>
+        <button type="button" class="btn btn-info" ng-click="login()">Login</button>
+    </p>
+</div>
